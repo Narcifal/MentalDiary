@@ -7,23 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E1D61010835316F684804FE /* Pods_MentalDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B931E03099A4211262930B97 /* Pods_MentalDiary.framework */; };
+		9A0F6BBB2AB862A000CBB409 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0F6BBA2AB862A000CBB409 /* Assembly.swift */; };
+		9A10D7D82AB5F15D002D1571 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A10D7D72AB5F15D002D1571 /* Router.swift */; };
+		9A10D7DF2AB5F341002D1571 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A10D7DE2AB5F341002D1571 /* HomePresenter.swift */; };
+		9A10D7E22AB5F3E0002D1571 /* UIStoryboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A10D7E12AB5F3E0002D1571 /* UIStoryboardExtension.swift */; };
 		9A2D14E12AB5EDAB00E7DE95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D14E02AB5EDAB00E7DE95 /* AppDelegate.swift */; };
 		9A2D14E32AB5EDAB00E7DE95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D14E22AB5EDAB00E7DE95 /* SceneDelegate.swift */; };
-		9A2D14E52AB5EDAB00E7DE95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D14E42AB5EDAB00E7DE95 /* ViewController.swift */; };
-		9A2D14E82AB5EDAB00E7DE95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A2D14E62AB5EDAB00E7DE95 /* Main.storyboard */; };
+		9A2D14E52AB5EDAB00E7DE95 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D14E42AB5EDAB00E7DE95 /* HomeViewController.swift */; };
+		9A2D14E82AB5EDAB00E7DE95 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A2D14E62AB5EDAB00E7DE95 /* Home.storyboard */; };
 		9A2D14EA2AB5EDAC00E7DE95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A2D14E92AB5EDAC00E7DE95 /* Assets.xcassets */; };
 		9A2D14ED2AB5EDAC00E7DE95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A2D14EB2AB5EDAC00E7DE95 /* LaunchScreen.storyboard */; };
+		9A84F9B82AB77663004105B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A84F9B72AB77663004105B1 /* Localizable.strings */; };
+		9A84F9BA2AB777EE004105B1 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A84F9B92AB777EE004105B1 /* Strings+Generated.swift */; };
+		9A84F9BC2AB77891004105B1 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 9A84F9BB2AB77891004105B1 /* swiftgen.yml */; };
+		9A84F9C22AB77B78004105B1 /* Images+Colors+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A84F9C12AB77B78004105B1 /* Images+Colors+Generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		092B0DCBED209D7960FC3CC2 /* Pods-MentalDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MentalDiary.release.xcconfig"; path = "Target Support Files/Pods-MentalDiary/Pods-MentalDiary.release.xcconfig"; sourceTree = "<group>"; };
+		9A0F6BBA2AB862A000CBB409 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
+		9A10D7D72AB5F15D002D1571 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		9A10D7DE2AB5F341002D1571 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		9A10D7E12AB5F3E0002D1571 /* UIStoryboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtension.swift; sourceTree = "<group>"; };
 		9A2D14DD2AB5EDAB00E7DE95 /* MentalDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MentalDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A2D14E02AB5EDAB00E7DE95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A2D14E22AB5EDAB00E7DE95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9A2D14E42AB5EDAB00E7DE95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9A2D14E72AB5EDAB00E7DE95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9A2D14E42AB5EDAB00E7DE95 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9A2D14E72AB5EDAB00E7DE95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		9A2D14E92AB5EDAC00E7DE95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A2D14EC2AB5EDAC00E7DE95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A2D14EE2AB5EDAC00E7DE95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A84F9B72AB77663004105B1 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		9A84F9B92AB777EE004105B1 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
+		9A84F9BB2AB77891004105B1 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = SOURCE_ROOT; };
+		9A84F9BF2AB77B01004105B1 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		9A84F9C12AB77B78004105B1 /* Images+Colors+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Images+Colors+Generated.swift"; sourceTree = "<group>"; };
+		B931E03099A4211262930B97 /* Pods_MentalDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MentalDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC6DF2AF4065D9C14DC7C334 /* Pods-MentalDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MentalDiary.debug.xcconfig"; path = "Target Support Files/Pods-MentalDiary/Pods-MentalDiary.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +52,108 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E1D61010835316F684804FE /* Pods_MentalDiary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		958ED232357582064BF5C9F8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B931E03099A4211262930B97 /* Pods_MentalDiary.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9A10D7D42AB5F128002D1571 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				9A2D14E02AB5EDAB00E7DE95 /* AppDelegate.swift */,
+				9A2D14E22AB5EDAB00E7DE95 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		9A10D7D52AB5F135002D1571 /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				9A0F6BBA2AB862A000CBB409 /* Assembly.swift */,
+				9A10D7D72AB5F15D002D1571 /* Router.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		9A10D7D92AB5F1EB002D1571 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				9A10D7DA2AB5F22E002D1571 /* HomeModule */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		9A10D7DA2AB5F22E002D1571 /* HomeModule */ = {
+			isa = PBXGroup;
+			children = (
+				9A10D7DD2AB5F251002D1571 /* Model */,
+				9A10D7DB2AB5F23B002D1571 /* View */,
+				9A10D7DC2AB5F240002D1571 /* Presenter */,
+			);
+			path = HomeModule;
+			sourceTree = "<group>";
+		};
+		9A10D7DB2AB5F23B002D1571 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9A2D14E42AB5EDAB00E7DE95 /* HomeViewController.swift */,
+				9A2D14E62AB5EDAB00E7DE95 /* Home.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9A10D7DC2AB5F240002D1571 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9A10D7DE2AB5F341002D1571 /* HomePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		9A10D7DD2AB5F251002D1571 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9A10D7E02AB5F3D0002D1571 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9A10D7E12AB5F3E0002D1571 /* UIStoryboardExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9A10D7E32AB5F5C0002D1571 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9A2D14E92AB5EDAC00E7DE95 /* Assets.xcassets */,
+				9A84F9B72AB77663004105B1 /* Localizable.strings */,
+				9A2D14EB2AB5EDAC00E7DE95 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		9A2D14D42AB5EDAB00E7DE95 = {
 			isa = PBXGroup;
 			children = (
+				9A84F9BB2AB77891004105B1 /* swiftgen.yml */,
+				9A84F9BF2AB77B01004105B1 /* Secrets.xcconfig */,
 				9A2D14DF2AB5EDAB00E7DE95 /* MentalDiary */,
 				9A2D14DE2AB5EDAB00E7DE95 /* Products */,
+				D92890F7119EC6CB599630C4 /* Pods */,
+				958ED232357582064BF5C9F8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +168,33 @@
 		9A2D14DF2AB5EDAB00E7DE95 /* MentalDiary */ = {
 			isa = PBXGroup;
 			children = (
-				9A2D14E02AB5EDAB00E7DE95 /* AppDelegate.swift */,
-				9A2D14E22AB5EDAB00E7DE95 /* SceneDelegate.swift */,
-				9A2D14E42AB5EDAB00E7DE95 /* ViewController.swift */,
-				9A2D14E62AB5EDAB00E7DE95 /* Main.storyboard */,
-				9A2D14E92AB5EDAC00E7DE95 /* Assets.xcassets */,
-				9A2D14EB2AB5EDAC00E7DE95 /* LaunchScreen.storyboard */,
+				9A10D7D42AB5F128002D1571 /* App */,
+				9A10D7D92AB5F1EB002D1571 /* Scenes */,
+				9A84F9B22AB7734E004105B1 /* Generated */,
+				9A10D7D52AB5F135002D1571 /* Routing */,
+				9A10D7E02AB5F3D0002D1571 /* Extensions */,
+				9A10D7E32AB5F5C0002D1571 /* Resources */,
 				9A2D14EE2AB5EDAC00E7DE95 /* Info.plist */,
 			);
 			path = MentalDiary;
+			sourceTree = "<group>";
+		};
+		9A84F9B22AB7734E004105B1 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				9A84F9C12AB77B78004105B1 /* Images+Colors+Generated.swift */,
+				9A84F9B92AB777EE004105B1 /* Strings+Generated.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		D92890F7119EC6CB599630C4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DC6DF2AF4065D9C14DC7C334 /* Pods-MentalDiary.debug.xcconfig */,
+				092B0DCBED209D7960FC3CC2 /* Pods-MentalDiary.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +204,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A2D14F12AB5EDAC00E7DE95 /* Build configuration list for PBXNativeTarget "MentalDiary" */;
 			buildPhases = (
+				3CE7B503BF4AE27408C17499 /* [CP] Check Pods Manifest.lock */,
 				9A2D14D92AB5EDAB00E7DE95 /* Sources */,
 				9A2D14DA2AB5EDAB00E7DE95 /* Frameworks */,
 				9A2D14DB2AB5EDAB00E7DE95 /* Resources */,
@@ -125,21 +256,54 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A84F9B82AB77663004105B1 /* Localizable.strings in Resources */,
+				9A84F9BC2AB77891004105B1 /* swiftgen.yml in Resources */,
 				9A2D14ED2AB5EDAC00E7DE95 /* LaunchScreen.storyboard in Resources */,
 				9A2D14EA2AB5EDAC00E7DE95 /* Assets.xcassets in Resources */,
-				9A2D14E82AB5EDAB00E7DE95 /* Main.storyboard in Resources */,
+				9A2D14E82AB5EDAB00E7DE95 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3CE7B503BF4AE27408C17499 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MentalDiary-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9A2D14D92AB5EDAB00E7DE95 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A2D14E52AB5EDAB00E7DE95 /* ViewController.swift in Sources */,
+				9A84F9C22AB77B78004105B1 /* Images+Colors+Generated.swift in Sources */,
+				9A10D7D82AB5F15D002D1571 /* Router.swift in Sources */,
+				9A2D14E52AB5EDAB00E7DE95 /* HomeViewController.swift in Sources */,
 				9A2D14E12AB5EDAB00E7DE95 /* AppDelegate.swift in Sources */,
+				9A0F6BBB2AB862A000CBB409 /* Assembly.swift in Sources */,
+				9A10D7DF2AB5F341002D1571 /* HomePresenter.swift in Sources */,
+				9A84F9BA2AB777EE004105B1 /* Strings+Generated.swift in Sources */,
+				9A10D7E22AB5F3E0002D1571 /* UIStoryboardExtension.swift in Sources */,
 				9A2D14E32AB5EDAB00E7DE95 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,12 +311,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		9A2D14E62AB5EDAB00E7DE95 /* Main.storyboard */ = {
+		9A2D14E62AB5EDAB00E7DE95 /* Home.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				9A2D14E72AB5EDAB00E7DE95 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Home.storyboard;
 			sourceTree = "<group>";
 		};
 		9A2D14EB2AB5EDAC00E7DE95 /* LaunchScreen.storyboard */ = {
@@ -216,7 +380,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +434,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -282,6 +446,7 @@
 		};
 		9A2D14F22AB5EDAC00E7DE95 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC6DF2AF4065D9C14DC7C334 /* Pods-MentalDiary.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -292,9 +457,9 @@
 				INFOPLIST_FILE = MentalDiary/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -310,6 +475,7 @@
 		};
 		9A2D14F32AB5EDAC00E7DE95 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 092B0DCBED209D7960FC3CC2 /* Pods-MentalDiary.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -320,9 +486,9 @@
 				INFOPLIST_FILE = MentalDiary/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
