@@ -26,7 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let router = Router(tabBarController: tabBarController, assembly: assembly)
 //        router.setupTabBarController()
         
-        window?.rootViewController = assembly.createHomeViewController(router: router)
+        window?.rootViewController = assembly.createMediaViewController(router: router)
         window?.makeKeyAndVisible()
     }
 }

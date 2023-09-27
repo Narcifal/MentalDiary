@@ -6,4 +6,10 @@
   
 */
 
-"HomeTitle" = "Home";
+//Storyboards
+"Storyboards.Home" = "Home";
+"Storyboards.Media" = "Media";
+
+//TableView
+"MediaModule.TableViewCell.nibName" = "MediaTableViewCell";
+"MediaModule.TableViewCell.identifier" = "MediaCell";

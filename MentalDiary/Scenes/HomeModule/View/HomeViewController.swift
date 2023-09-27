@@ -10,12 +10,6 @@ import UIKit
 protocol HomeViewProtocol: AnyObject {}
 
 final class HomeViewController: UIViewController {
-
-    static func instantiate(with presenter: HomePresenterProtocol) -> HomeViewController {
-        let viewController: HomeViewController = .instantiate(storyboard: .home)
-        viewController.presenter = presenter
-        return viewController
-    }
     
     // MARK: - Properties -
     var presenter: HomePresenterProtocol!

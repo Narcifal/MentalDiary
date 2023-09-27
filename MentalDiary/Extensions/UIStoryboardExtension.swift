@@ -9,6 +9,7 @@ import UIKit
 
 enum Storyboards: String {
     case home = "Home"
+    case media = "Media"
 }
 
 extension UIViewController {

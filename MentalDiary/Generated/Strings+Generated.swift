@@ -10,11 +10,23 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum Localized {
-  /// Localizable.strings
-  ///   MentalDiary
-  /// 
-  ///   Created by Denys Niestierov on 17.09.2023.
-  internal static let homeTitle = Localized.tr("Localizable", "HomeTitle", fallback: "Home")
+  internal enum MediaModule {
+    internal enum TableViewCell {
+      /// MediaCell
+      internal static let identifier = Localized.tr("Localizable", "MediaModule.TableViewCell.identifier", fallback: "MediaCell")
+      /// MediaTableViewCell
+      internal static let nibName = Localized.tr("Localizable", "MediaModule.TableViewCell.nibName", fallback: "MediaTableViewCell")
+    }
+  }
+  internal enum Storyboards {
+    /// Localizable.strings
+    ///   MentalDiary
+    /// 
+    ///   Created by Denys Niestierov on 17.09.2023.
+    internal static let home = Localized.tr("Localizable", "Storyboards.Home", fallback: "Home")
+    /// Media
+    internal static let media = Localized.tr("Localizable", "Storyboards.Media", fallback: "Media")
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

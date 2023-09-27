@@ -9,6 +9,7 @@ import UIKit
 
 protocol AssemblyProtocol {
     func createHomeViewController(router: RouterProtocol) -> UIViewController
+    func createMediaViewController(router: RouterProtocol) -> UIViewController
 }
 
 final class Assembly: AssemblyProtocol {
@@ -16,9 +17,15 @@ final class Assembly: AssemblyProtocol {
     // MARK: - Iternal -
     func createHomeViewController(router: RouterProtocol) -> UIViewController {
         let presenter = HomePresenter(router: router)
-        let viewController = HomeViewController.instantiate(with: presenter)
+        let viewController = Storyboard.Home.homeViewController.instantiate()
         presenter.inject(view: viewController)
-        viewController.title = Localized.homeTitle
+        return viewController
+    }
+    
+    func createMediaViewController(router: RouterProtocol) -> UIViewController {
+        let presenter = MediaPresenter(router: router)
+        let viewController = Storyboard.Media.mediaViewController.instantiate()
+        presenter.inject(view: viewController)
         return viewController
     }
     
