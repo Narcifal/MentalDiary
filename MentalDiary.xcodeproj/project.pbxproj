@@ -24,6 +24,9 @@
 		9A46AF022AC4320C00977980 /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A46AEFE2AC4320C00977980 /* MediaViewController.swift */; };
 		9A46AF042AC433D700977980 /* MediaPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A46AF032AC433D700977980 /* MediaPresenter.swift */; };
 		9A46AF082AC4470E00977980 /* Storyboard+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A46AF072AC4470E00977980 /* Storyboard+Generated.swift */; };
+		9A6A8CC42AFAC95900A2361E /* RatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6A8CBF2AFAC95900A2361E /* RatePresenter.swift */; };
+		9A6A8CC52AFAC95900A2361E /* RateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6A8CC22AFAC95900A2361E /* RateViewController.swift */; };
+		9A6A8CC62AFAC95900A2361E /* Rate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A6A8CC32AFAC95900A2361E /* Rate.storyboard */; };
 		9A84F9B82AB77663004105B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A84F9B72AB77663004105B1 /* Localizable.strings */; };
 		9A84F9BA2AB777EE004105B1 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A84F9B92AB777EE004105B1 /* Strings+Generated.swift */; };
 		9A84F9BC2AB77891004105B1 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 9A84F9BB2AB77891004105B1 /* swiftgen.yml */; };
@@ -50,6 +53,9 @@
 		9A46AEFE2AC4320C00977980 /* MediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
 		9A46AF032AC433D700977980 /* MediaPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPresenter.swift; sourceTree = "<group>"; };
 		9A46AF072AC4470E00977980 /* Storyboard+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard+Generated.swift"; sourceTree = "<group>"; };
+		9A6A8CBF2AFAC95900A2361E /* RatePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatePresenter.swift; sourceTree = "<group>"; };
+		9A6A8CC22AFAC95900A2361E /* RateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateViewController.swift; sourceTree = "<group>"; };
+		9A6A8CC32AFAC95900A2361E /* Rate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Rate.storyboard; sourceTree = "<group>"; };
 		9A84F9B72AB77663004105B1 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		9A84F9B92AB777EE004105B1 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
 		9A84F9BB2AB77891004105B1 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = SOURCE_ROOT; };
@@ -101,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				9A10D7DA2AB5F22E002D1571 /* HomeModule */,
+				9A6A8CBD2AFAC95900A2361E /* RateModule */,
 				9A46AEF62AC4320C00977980 /* MediaModule */,
 			);
 			path = Scenes;
@@ -236,6 +243,40 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		9A6A8CBD2AFAC95900A2361E /* RateModule */ = {
+			isa = PBXGroup;
+			children = (
+				9A6A8CBE2AFAC95900A2361E /* Presenter */,
+				9A6A8CC02AFAC95900A2361E /* Model */,
+				9A6A8CC12AFAC95900A2361E /* View */,
+			);
+			path = RateModule;
+			sourceTree = "<group>";
+		};
+		9A6A8CBE2AFAC95900A2361E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9A6A8CBF2AFAC95900A2361E /* RatePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		9A6A8CC02AFAC95900A2361E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9A6A8CC12AFAC95900A2361E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9A6A8CC22AFAC95900A2361E /* RateViewController.swift */,
+				9A6A8CC32AFAC95900A2361E /* Rate.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		9A84F9B22AB7734E004105B1 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,6 +357,7 @@
 			files = (
 				9A46AF002AC4320C00977980 /* MediaTableViewCell.xib in Resources */,
 				9A84F9B82AB77663004105B1 /* Localizable.strings in Resources */,
+				9A6A8CC62AFAC95900A2361E /* Rate.storyboard in Resources */,
 				9A84F9BC2AB77891004105B1 /* swiftgen.yml in Resources */,
 				9A2D14ED2AB5EDAC00E7DE95 /* LaunchScreen.storyboard in Resources */,
 				9A46AEFF2AC4320C00977980 /* Media.storyboard in Resources */,
@@ -359,6 +401,7 @@
 				9A84F9C22AB77B78004105B1 /* Images+Colors+Generated.swift in Sources */,
 				9A10D7D82AB5F15D002D1571 /* Router.swift in Sources */,
 				9A2D14E52AB5EDAB00E7DE95 /* HomeViewController.swift in Sources */,
+				9A6A8CC52AFAC95900A2361E /* RateViewController.swift in Sources */,
 				9A2D14E12AB5EDAB00E7DE95 /* AppDelegate.swift in Sources */,
 				9A46AF012AC4320C00977980 /* MediaTableViewCell.swift in Sources */,
 				9A0F6BBB2AB862A000CBB409 /* Assembly.swift in Sources */,
@@ -368,6 +411,7 @@
 				9A46AF022AC4320C00977980 /* MediaViewController.swift in Sources */,
 				9A46AF082AC4470E00977980 /* Storyboard+Generated.swift in Sources */,
 				9A2D14E32AB5EDAB00E7DE95 /* SceneDelegate.swift in Sources */,
+				9A6A8CC42AFAC95900A2361E /* RatePresenter.swift in Sources */,
 				9A46AF042AC433D700977980 /* MediaPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
