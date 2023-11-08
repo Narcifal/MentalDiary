@@ -27,6 +27,14 @@
 		9A6A8CC42AFAC95900A2361E /* RatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6A8CBF2AFAC95900A2361E /* RatePresenter.swift */; };
 		9A6A8CC52AFAC95900A2361E /* RateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6A8CC22AFAC95900A2361E /* RateViewController.swift */; };
 		9A6A8CC62AFAC95900A2361E /* Rate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A6A8CC32AFAC95900A2361E /* Rate.storyboard */; };
+		9A6A8CCE2AFAC9B700A2361E /* SharePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6A8CC92AFAC9B700A2361E /* SharePresenter.swift */; };
+		9A6A8CCF2AFAC9B700A2361E /* Share.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A6A8CCC2AFAC9B700A2361E /* Share.storyboard */; };
+		9A6A8CD02AFAC9B700A2361E /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6A8CCD2AFAC9B700A2361E /* ShareViewController.swift */; };
+		9A6A8CDC2AFACA4B00A2361E /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6A8CD32AFACA4B00A2361E /* ProfilePresenter.swift */; };
+		9A6A8CDD2AFACA4B00A2361E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A6A8CD62AFACA4B00A2361E /* Profile.storyboard */; };
+		9A6A8CDE2AFACA4B00A2361E /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A6A8CD92AFACA4B00A2361E /* SettingsTableViewCell.xib */; };
+		9A6A8CDF2AFACA4B00A2361E /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6A8CDA2AFACA4B00A2361E /* SettingsTableViewCell.swift */; };
+		9A6A8CE02AFACA4B00A2361E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6A8CDB2AFACA4B00A2361E /* ProfileViewController.swift */; };
 		9A84F9B82AB77663004105B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A84F9B72AB77663004105B1 /* Localizable.strings */; };
 		9A84F9BA2AB777EE004105B1 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A84F9B92AB777EE004105B1 /* Strings+Generated.swift */; };
 		9A84F9BC2AB77891004105B1 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 9A84F9BB2AB77891004105B1 /* swiftgen.yml */; };
@@ -56,6 +64,14 @@
 		9A6A8CBF2AFAC95900A2361E /* RatePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatePresenter.swift; sourceTree = "<group>"; };
 		9A6A8CC22AFAC95900A2361E /* RateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateViewController.swift; sourceTree = "<group>"; };
 		9A6A8CC32AFAC95900A2361E /* Rate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Rate.storyboard; sourceTree = "<group>"; };
+		9A6A8CC92AFAC9B700A2361E /* SharePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharePresenter.swift; sourceTree = "<group>"; };
+		9A6A8CCC2AFAC9B700A2361E /* Share.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Share.storyboard; sourceTree = "<group>"; };
+		9A6A8CCD2AFAC9B700A2361E /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		9A6A8CD32AFACA4B00A2361E /* ProfilePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		9A6A8CD62AFACA4B00A2361E /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		9A6A8CD92AFACA4B00A2361E /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
+		9A6A8CDA2AFACA4B00A2361E /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		9A6A8CDB2AFACA4B00A2361E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9A84F9B72AB77663004105B1 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		9A84F9B92AB777EE004105B1 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
 		9A84F9BB2AB77891004105B1 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = SOURCE_ROOT; };
@@ -108,6 +124,8 @@
 			children = (
 				9A10D7DA2AB5F22E002D1571 /* HomeModule */,
 				9A6A8CBD2AFAC95900A2361E /* RateModule */,
+				9A6A8CC72AFAC9B700A2361E /* ShareModule */,
+				9A6A8CD12AFACA4B00A2361E /* ProfileModule */,
 				9A46AEF62AC4320C00977980 /* MediaModule */,
 			);
 			path = Scenes;
@@ -277,6 +295,92 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		9A6A8CC72AFAC9B700A2361E /* ShareModule */ = {
+			isa = PBXGroup;
+			children = (
+				9A6A8CC82AFAC9B700A2361E /* Presenter */,
+				9A6A8CCA2AFAC9B700A2361E /* Model */,
+				9A6A8CCB2AFAC9B700A2361E /* View */,
+			);
+			path = ShareModule;
+			sourceTree = "<group>";
+		};
+		9A6A8CC82AFAC9B700A2361E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9A6A8CC92AFAC9B700A2361E /* SharePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		9A6A8CCA2AFAC9B700A2361E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9A6A8CCB2AFAC9B700A2361E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9A6A8CCC2AFAC9B700A2361E /* Share.storyboard */,
+				9A6A8CCD2AFAC9B700A2361E /* ShareViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9A6A8CD12AFACA4B00A2361E /* ProfileModule */ = {
+			isa = PBXGroup;
+			children = (
+				9A6A8CD22AFACA4B00A2361E /* Presenter */,
+				9A6A8CD42AFACA4B00A2361E /* Model */,
+				9A6A8CD52AFACA4B00A2361E /* View */,
+			);
+			path = ProfileModule;
+			sourceTree = "<group>";
+		};
+		9A6A8CD22AFACA4B00A2361E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9A6A8CD32AFACA4B00A2361E /* ProfilePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		9A6A8CD42AFACA4B00A2361E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9A6A8CD52AFACA4B00A2361E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9A6A8CD62AFACA4B00A2361E /* Profile.storyboard */,
+				9A6A8CD72AFACA4B00A2361E /* ProfileView */,
+				9A6A8CD82AFACA4B00A2361E /* Cell */,
+				9A6A8CDB2AFACA4B00A2361E /* ProfileViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9A6A8CD72AFACA4B00A2361E /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		9A6A8CD82AFACA4B00A2361E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9A6A8CD92AFACA4B00A2361E /* SettingsTableViewCell.xib */,
+				9A6A8CDA2AFACA4B00A2361E /* SettingsTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		9A84F9B22AB7734E004105B1 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,9 +461,12 @@
 			files = (
 				9A46AF002AC4320C00977980 /* MediaTableViewCell.xib in Resources */,
 				9A84F9B82AB77663004105B1 /* Localizable.strings in Resources */,
+				9A6A8CDD2AFACA4B00A2361E /* Profile.storyboard in Resources */,
 				9A6A8CC62AFAC95900A2361E /* Rate.storyboard in Resources */,
 				9A84F9BC2AB77891004105B1 /* swiftgen.yml in Resources */,
 				9A2D14ED2AB5EDAC00E7DE95 /* LaunchScreen.storyboard in Resources */,
+				9A6A8CDE2AFACA4B00A2361E /* SettingsTableViewCell.xib in Resources */,
+				9A6A8CCF2AFAC9B700A2361E /* Share.storyboard in Resources */,
 				9A46AEFF2AC4320C00977980 /* Media.storyboard in Resources */,
 				9A2D14EA2AB5EDAC00E7DE95 /* Assets.xcassets in Resources */,
 				9A2D14E82AB5EDAB00E7DE95 /* Home.storyboard in Resources */,
@@ -400,19 +507,24 @@
 			files = (
 				9A84F9C22AB77B78004105B1 /* Images+Colors+Generated.swift in Sources */,
 				9A10D7D82AB5F15D002D1571 /* Router.swift in Sources */,
+				9A6A8CE02AFACA4B00A2361E /* ProfileViewController.swift in Sources */,
 				9A2D14E52AB5EDAB00E7DE95 /* HomeViewController.swift in Sources */,
 				9A6A8CC52AFAC95900A2361E /* RateViewController.swift in Sources */,
 				9A2D14E12AB5EDAB00E7DE95 /* AppDelegate.swift in Sources */,
+				9A6A8CDF2AFACA4B00A2361E /* SettingsTableViewCell.swift in Sources */,
 				9A46AF012AC4320C00977980 /* MediaTableViewCell.swift in Sources */,
 				9A0F6BBB2AB862A000CBB409 /* Assembly.swift in Sources */,
 				9A10D7DF2AB5F341002D1571 /* HomePresenter.swift in Sources */,
 				9A84F9BA2AB777EE004105B1 /* Strings+Generated.swift in Sources */,
 				9A10D7E22AB5F3E0002D1571 /* UIStoryboardExtension.swift in Sources */,
+				9A6A8CCE2AFAC9B700A2361E /* SharePresenter.swift in Sources */,
 				9A46AF022AC4320C00977980 /* MediaViewController.swift in Sources */,
 				9A46AF082AC4470E00977980 /* Storyboard+Generated.swift in Sources */,
 				9A2D14E32AB5EDAB00E7DE95 /* SceneDelegate.swift in Sources */,
+				9A6A8CDC2AFACA4B00A2361E /* ProfilePresenter.swift in Sources */,
 				9A6A8CC42AFAC95900A2361E /* RatePresenter.swift in Sources */,
 				9A46AF042AC433D700977980 /* MediaPresenter.swift in Sources */,
+				9A6A8CD02AFAC9B700A2361E /* ShareViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
