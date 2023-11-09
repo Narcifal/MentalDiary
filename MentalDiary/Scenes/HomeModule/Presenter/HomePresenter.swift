@@ -7,7 +7,10 @@
 
 import Foundation
 
-protocol HomePresenterProtocol {}
+protocol HomePresenterProtocol {
+    func viewDidLoad()
+    func routeToReport()
+}
 
 final class HomePresenter: HomePresenterProtocol {
     
@@ -25,4 +28,23 @@ final class HomePresenter: HomePresenterProtocol {
         self.view = view
     }
     
+    func viewDidLoad() {
+        updateDate()
+    }
+    
+    func routeToReport() {
+        router.routeToRateScreen()
+    }
+}
+
+// MARK: - Private -
+private extension HomePresenter {
+    func updateDate() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM, dd, yyyy"
+        let currentDate = Date()
+        let formattedDate = dateFormatter.string(from: currentDate)
+        
+        view?.updateDate(date: formattedDate)
+    }
 }

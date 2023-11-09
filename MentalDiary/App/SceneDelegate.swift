@@ -24,9 +24,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tabBarController = UITabBarController()
         let assembly = Assembly()
         let router = Router(tabBarController: tabBarController, assembly: assembly)
-        router.setupTabBarController() // Установите контроллеры в таббар
+        router.setupTabBarController()
 
-        window?.rootViewController = tabBarController // Установите таббар контроллер как корневой
+        window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
     }
 }

@@ -13,6 +13,7 @@ protocol AssemblyProtocol {
     func createRateViewController(router: RouterProtocol) -> UIViewController
     func createProfileViewController(router: RouterProtocol) -> UIViewController
     func createShareViewController(router: RouterProtocol) -> UIViewController
+    func createStatisticViewController(router: RouterProtocol) -> UIViewController
 }
 
 final class Assembly: AssemblyProtocol {
@@ -21,11 +22,13 @@ final class Assembly: AssemblyProtocol {
         let presenter = HomePresenter(router: router)
         let viewController = Storyboard.Home.homeViewController.instantiate()
         presenter.inject(view: viewController)
+        viewController.presenter = presenter
         viewController.tabBarItem = UITabBarItem(
             title: "Home",
             image: UIImage(systemName: "house"),
             selectedImage: nil
         )
+        
         return viewController
     }
     
@@ -33,9 +36,23 @@ final class Assembly: AssemblyProtocol {
         let presenter = MediaPresenter(router: router)
         let viewController = Storyboard.Media.mediaViewController.instantiate()
         presenter.inject(view: viewController)
+        viewController.presenter = presenter
         viewController.tabBarItem = UITabBarItem(
             title: "Media",
             image: UIImage(systemName: "film"),
+            selectedImage: nil
+        )
+        return viewController
+    }
+    
+    func createStatisticViewController(router: RouterProtocol) -> UIViewController {
+        let presenter = MediaPresenter(router: router)
+        let viewController = Storyboard.Media.mediaViewController.instantiate()
+        presenter.inject(view: viewController)
+        viewController.presenter = presenter
+        viewController.tabBarItem = UITabBarItem(
+            title: "Statistic",
+            image: UIImage(systemName: "waveform.path.ecg"),
             selectedImage: nil
         )
         return viewController
@@ -45,6 +62,7 @@ final class Assembly: AssemblyProtocol {
         let presenter = ProfilePresenter(router: router)
         let viewController = Storyboard.Profile.profileViewController.instantiate()
         presenter.inject(view: viewController)
+        viewController.presenter = presenter
         return viewController
     }
     
@@ -52,6 +70,7 @@ final class Assembly: AssemblyProtocol {
         let presenter = SharePresenter(router: router)
         let viewController = Storyboard.Share.shareViewController.instantiate()
         presenter.inject(view: viewController)
+        viewController.presenter = presenter
         return viewController
     }
     
@@ -59,6 +78,7 @@ final class Assembly: AssemblyProtocol {
         let presenter = RatePresenter(router: router)
         let viewController = Storyboard.Rate.rateViewController.instantiate()
         presenter.inject(view: viewController)
+        viewController.presenter = presenter
         return viewController
     }
 }

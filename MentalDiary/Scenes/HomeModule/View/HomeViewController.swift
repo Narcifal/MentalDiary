@@ -7,7 +7,9 @@
 
 import UIKit
 
-protocol HomeViewProtocol: AnyObject {}
+protocol HomeViewProtocol: AnyObject {
+    func updateDate(date: String)
+}
 
 final class HomeViewController: UIViewController {
     
@@ -28,10 +30,11 @@ final class HomeViewController: UIViewController {
     // MARK: - Life Cycle -
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        presenter.viewDidLoad()
         setup()
     }
     
+    // MARK: - Internal -
     func setup() {
         view.backgroundColor = .white
         
@@ -45,9 +48,22 @@ final class HomeViewController: UIViewController {
         diaryAchievementView.layer.cornerCurve = .continuous
         
         articleImageView.contentMode = .scaleToFill
-        articleImageView.image = UIImage(named: "Sunset-Road-iphone")
+        articleImageView.image = Asset.test.image
     }
 
+    
 }
 
-extension HomeViewController: HomeViewProtocol {}
+// MARK: - HomeViewProtocol -
+extension HomeViewController: HomeViewProtocol {
+    func updateDate(date: String) {
+        profileDateLabel.text = date
+    }
+}
+
+// MARK: - Private -
+private extension HomeViewController {
+    @IBAction func fillDairyTapped(_ sender: Any) {
+        presenter.routeToReport()
+    }
+}

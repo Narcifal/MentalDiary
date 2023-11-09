@@ -7,7 +7,9 @@
 
 import UIKit
 
-protocol RateViewProtocol: AnyObject {}
+protocol RateViewProtocol: AnyObject {
+    func updateEmotion(emotionImage: UIImage)
+}
 
 final class RateViewController: UIViewController {
     
@@ -18,7 +20,7 @@ final class RateViewController: UIViewController {
     }
     
     // MARK: - Properties -
-    private var presenter: RatePresenterProtocol!
+    var presenter: RatePresenterProtocol!
     
     // MARK: - UIComponents -
     @IBOutlet private weak var rateImageView: UIImageView!
@@ -28,6 +30,7 @@ final class RateViewController: UIViewController {
     // MARK: - LifeCycle -
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.viewDidLoad()
         
         setupRateImageView()
         setupNextButton()
@@ -40,8 +43,6 @@ final class RateViewController: UIViewController {
         rateImageView.layer.cornerCurve = .continuous
         rateImageView.clipsToBounds = true
         rateImageView.backgroundColor = UIColor.gray
-        
-        rateImageView.image = UIImage(named: "happy")
     }
     
     private func setupNextButton() {
@@ -51,11 +52,18 @@ final class RateViewController: UIViewController {
     }
     
     @IBAction func rateSliderDidChange(_ sender: UISlider) {
+        let index = Int(sender.value)
+        presenter.sliderValueDidUpdate(by: index)
         
     }
     
     @IBAction func tappedNextButton(_ sender: UIButton) {
+        presenter.nextStepTapped()
     }
 }
 
-extension RateViewController: RateViewProtocol {}
+extension RateViewController: RateViewProtocol {
+    func updateEmotion(emotionImage: UIImage) {
+        rateImageView.image = emotionImage
+    }
+}

@@ -26,6 +26,12 @@ internal typealias AssetImageTypeAlias = ImageAsset.Image
 internal enum Asset {
   internal static let accentColor = ColorAsset(name: "AccentColor")
   internal static let pureGreen = ColorAsset(name: "PureGreen")
+  internal static let angryEmotion = ImageAsset(name: "angry_emotion")
+  internal static let disgustEmotion = ImageAsset(name: "disgust_emotion")
+  internal static let fearEmotion = ImageAsset(name: "fear_emotion")
+  internal static let happyEmotion = ImageAsset(name: "happy_emotion")
+  internal static let sadEmotion = ImageAsset(name: "sad_emotion")
+  internal static let surpriseEmotion = ImageAsset(name: "surprise_emotion")
   internal static let test = ImageAsset(name: "test")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name

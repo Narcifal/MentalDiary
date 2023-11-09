@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "happy_emotion.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

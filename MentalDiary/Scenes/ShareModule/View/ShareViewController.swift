@@ -25,7 +25,7 @@ final class ShareViewController: UIViewController {
     }
     
     // MARK: - Properties -
-    private var presenter: SharePresenterProtocol!
+    var presenter: SharePresenterProtocol!
     
     // MARK: - UIComponents -
     @IBOutlet weak var situationTextView: UITextView!

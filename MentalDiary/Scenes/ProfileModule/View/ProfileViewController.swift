@@ -18,7 +18,7 @@ final class ProfileViewController: UIViewController {
     }
     
     // MARK: - Properties -
-    private var presenter: ProfilePresenterProtocol!
+    var presenter: ProfilePresenterProtocol!
     private var isStarterScreen = false
     private let genderList = ["M", "W"]
     private let settingsList = ["Contact Support", "Terms & Condition", "Log out"]
