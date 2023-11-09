@@ -12,26 +12,22 @@ protocol RouterProtocol {
 }
 
 final class Router: RouterProtocol {
-    
-    // MARK: - Properties -
     private var assembly: AssemblyProtocol
-    private var tabBarController: UITabBarController?
-    
-    // MARK: - Life Cycle -
+    private weak var tabBarController: UITabBarController?
+
     init(tabBarController: UITabBarController, assembly: AssemblyProtocol) {
         self.tabBarController = tabBarController
         self.assembly = assembly
     }
-    
-    // MARK: - Iternal -
+
     func setupTabBarController() {
-        let tabBarViewController = UITabBarController()
         let homeViewController = assembly.createHomeViewController(router: self)
-        
-        tabBarViewController.setViewControllers([homeViewController], animated: true)
-        
-        tabBarViewController.modalPresentationStyle = .fullScreen
-        //self.present(tabBarViewController, animated: true)
+        let mediaViewController = assembly.createMediaViewController(router: self)
+
+        // Создайте массив ваших контроллеров
+        let viewControllers = [homeViewController, mediaViewController]
+
+        // Установите контроллеры в качестве вкладок таббара
+        tabBarController?.setViewControllers(viewControllers, animated: false)
     }
-    
 }

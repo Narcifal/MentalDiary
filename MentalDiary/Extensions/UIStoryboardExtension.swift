@@ -10,6 +10,9 @@ import UIKit
 enum Storyboards: String {
     case home = "Home"
     case media = "Media"
+    case share = "Share"
+    case rate = "Rate"
+    case profile = "Profile"
 }
 
 extension UIViewController {

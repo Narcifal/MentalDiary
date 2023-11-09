@@ -20,13 +20,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func startRootScreen(for windowScene: UIWindowScene) {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        
+
         let tabBarController = UITabBarController()
         let assembly = Assembly()
         let router = Router(tabBarController: tabBarController, assembly: assembly)
-//        router.setupTabBarController()
-        
-        window?.rootViewController = assembly.createMediaViewController(router: router)
+        router.setupTabBarController() // Установите контроллеры в таббар
+
+        window?.rootViewController = tabBarController // Установите таббар контроллер как корневой
         window?.makeKeyAndVisible()
     }
 }

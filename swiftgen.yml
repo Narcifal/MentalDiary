@@ -26,3 +26,4 @@ ib:
       output: Storyboard+Generated.swift
       params:
         enumName: Storyboard
+

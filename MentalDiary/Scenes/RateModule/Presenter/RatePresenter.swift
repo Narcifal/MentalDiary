@@ -13,6 +13,12 @@ final class RatePresenter: RatePresenterProtocol {
     
     //MARK: - Properties -
     private weak var view: RateViewProtocol?
+    private let router: RouterProtocol
+    
+    // MARK: - Life Cycle -
+    required init(router: RouterProtocol) {
+        self.router = router
+    }
     
     // MARK: - Iternal -
     func inject(view: RateViewProtocol) {

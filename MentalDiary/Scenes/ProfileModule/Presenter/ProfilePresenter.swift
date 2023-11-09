@@ -13,6 +13,12 @@ final class ProfilePresenter: ProfilePresenterProtocol {
     
     //MARK: - Properties -
     private weak var view: ProfileViewProtocol?
+    private let router: RouterProtocol
+    
+    // MARK: - Life Cycle -
+    required init(router: RouterProtocol) {
+        self.router = router
+    }
     
     // MARK: - Iternal -
     func inject(view: ProfileViewProtocol) {

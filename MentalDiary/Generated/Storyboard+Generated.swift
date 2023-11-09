@@ -15,9 +15,9 @@ internal enum Storyboard {
   internal enum Home: StoryboardType {
     internal static let storyboardName = "Home"
 
-    internal static let initialScene = InitialSceneType<HomeViewController>(storyboard: Self.self)
+    internal static let initialScene = InitialSceneType<MentalDiary.HomeViewController>(storyboard: Self.self)
 
-    internal static let homeViewController = SceneType<HomeViewController>(storyboard: Self.self, identifier: "HomeViewController")
+    internal static let homeViewController = SceneType<MentalDiary.HomeViewController>(storyboard: Self.self, identifier: "HomeViewController")
   }
   internal enum LaunchScreen: StoryboardType {
     internal static let storyboardName = "LaunchScreen"
@@ -27,7 +27,22 @@ internal enum Storyboard {
   internal enum Media: StoryboardType {
     internal static let storyboardName = "Media"
 
-    internal static let mediaViewController = SceneType<MediaViewController>(storyboard: Self.self, identifier: "MediaViewController")
+    internal static let mediaViewController = SceneType<MentalDiary.MediaViewController>(storyboard: Self.self, identifier: "MediaViewController")
+  }
+  internal enum Profile: StoryboardType {
+    internal static let storyboardName = "Profile"
+
+    internal static let profileViewController = SceneType<MentalDiary.ProfileViewController>(storyboard: Self.self, identifier: "ProfileViewController")
+  }
+  internal enum Rate: StoryboardType {
+    internal static let storyboardName = "Rate"
+
+    internal static let rateViewController = SceneType<MentalDiary.RateViewController>(storyboard: Self.self, identifier: "RateViewController")
+  }
+  internal enum Share: StoryboardType {
+    internal static let storyboardName = "Share"
+
+    internal static let shareViewController = SceneType<MentalDiary.ShareViewController>(storyboard: Self.self, identifier: "ShareViewController")
   }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name
