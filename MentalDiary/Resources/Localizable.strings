@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  MentalDiary
+
+  Created by Denys Niestierov on 17.09.2023.
+  
+*/
+
+//Storyboards
+"Storyboards.Home" = "Home";
+"Storyboards.Media" = "Media";
+
+//TableView
+"MediaModule.TableViewCell.nibName" = "MediaTableViewCell";
+"MediaModule.TableViewCell.identifier" = "MediaCell";
