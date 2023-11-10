@@ -7,13 +7,20 @@
 
 import Foundation
 
-protocol MediaPresenterProtocol: AnyObject {}
+protocol MediaPresenterProtocol: AnyObject {
+    var selectedType: mediaType
+}
 
 final class MediaPresenter: MediaPresenterProtocol {
     
     //MARK: - Properties -
     private weak var view: MediaViewProtocol?
     private let router: RouterProtocol
+    
+    var articles
+    var videos
+    
+    var selectedType: mediaType = .media
     
     // MARK: - Life Cycle -
     required init(router: RouterProtocol) {
@@ -25,4 +32,10 @@ final class MediaPresenter: MediaPresenterProtocol {
         self.view = view
     }
     
+}
+
+
+enum mediaType {
+    case media
+    case articles
 }

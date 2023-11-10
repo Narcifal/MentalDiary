@@ -78,9 +78,18 @@ extension MediaViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: Localized.MediaModule.TableViewCell.identifier) as! MediaTableViewCell
-        cell.selectionStyle = .none
-        return cell
+        
+        
+        if presenter.selectedType == .media{
+            let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: Localized.MediaModule.TableViewCell.identifier) as! MediaTableViewCell
+            cell.selectionStyle = .none
+            return cell
+        } else {
+            let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: Localized.MediaModule.TableViewCell.identifier) as! MediaTableViewCell
+            cell.selectionStyle = .none
+            return cell
+        }
+       
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

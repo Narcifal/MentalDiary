@@ -49,4 +49,8 @@ final class Router: RouterProtocol {
     func backButtonTapped() {
         tabBarController?.dismiss(animated: true, completion: nil)
     }
+    
+    func popViewController() {
+        tabBarController?.dismiss(animated: true, completion: nil)
+    }
 }
