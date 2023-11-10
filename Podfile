@@ -6,5 +6,7 @@ target 'MentalDiary' do
   use_frameworks!
 
   pod 'SwiftGen'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
 
 end

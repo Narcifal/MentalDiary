@@ -39,6 +39,7 @@
 		9A84F9BA2AB777EE004105B1 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A84F9B92AB777EE004105B1 /* Strings+Generated.swift */; };
 		9A84F9BC2AB77891004105B1 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 9A84F9BB2AB77891004105B1 /* swiftgen.yml */; };
 		9A84F9C22AB77B78004105B1 /* Images+Colors+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A84F9C12AB77B78004105B1 /* Images+Colors+Generated.swift */; };
+		B0E788082AFED75E0018EDBB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B0E788072AFED75E0018EDBB /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		9A84F9BB2AB77891004105B1 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = SOURCE_ROOT; };
 		9A84F9BF2AB77B01004105B1 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		9A84F9C12AB77B78004105B1 /* Images+Colors+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Images+Colors+Generated.swift"; sourceTree = "<group>"; };
+		B0E788072AFED75E0018EDBB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B931E03099A4211262930B97 /* Pods_MentalDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MentalDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC6DF2AF4065D9C14DC7C334 /* Pods-MentalDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MentalDiary.debug.xcconfig"; path = "Target Support Files/Pods-MentalDiary/Pods-MentalDiary.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -212,6 +214,7 @@
 				9A10D7D52AB5F135002D1571 /* Routing */,
 				9A10D7E02AB5F3D0002D1571 /* Extensions */,
 				9A10D7E32AB5F5C0002D1571 /* Resources */,
+				B0E788072AFED75E0018EDBB /* GoogleService-Info.plist */,
 				9A2D14EE2AB5EDAC00E7DE95 /* Info.plist */,
 			);
 			path = MentalDiary;
@@ -411,6 +414,7 @@
 				9A2D14D92AB5EDAB00E7DE95 /* Sources */,
 				9A2D14DA2AB5EDAB00E7DE95 /* Frameworks */,
 				9A2D14DB2AB5EDAB00E7DE95 /* Resources */,
+				4B261D0AF66677523069B829 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -464,6 +468,7 @@
 				9A6A8CDD2AFACA4B00A2361E /* Profile.storyboard in Resources */,
 				9A6A8CC62AFAC95900A2361E /* Rate.storyboard in Resources */,
 				9A84F9BC2AB77891004105B1 /* swiftgen.yml in Resources */,
+				B0E788082AFED75E0018EDBB /* GoogleService-Info.plist in Resources */,
 				9A2D14ED2AB5EDAC00E7DE95 /* LaunchScreen.storyboard in Resources */,
 				9A6A8CDE2AFACA4B00A2361E /* SettingsTableViewCell.xib in Resources */,
 				9A6A8CCF2AFAC9B700A2361E /* Share.storyboard in Resources */,
@@ -496,6 +501,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B261D0AF66677523069B829 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MentalDiary/Pods-MentalDiary-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MentalDiary/Pods-MentalDiary-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MentalDiary/Pods-MentalDiary-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -672,7 +694,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9A2Y9UTZLK;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MentalDiary/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -701,7 +723,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9A2Y9UTZLK;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MentalDiary/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
