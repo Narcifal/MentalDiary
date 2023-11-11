@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -11,7 +12,7 @@
         <!--Profile View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="ProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="ProfileViewController" customModule="EmptyMentalDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="ProfileViewController" customModule="MentalDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -19,8 +20,34 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="t7h-8l-LxR">
                                 <rect key="frame" x="25" y="69" width="343" height="729"/>
                                 <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Yhq-gJ-tDZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="25"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RdT-mI-iV9">
+                                                <rect key="frame" x="0.0" y="0.0" width="39.666666666666664" height="25"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system"/>
+                                                <connections>
+                                                    <action selector="backButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="eeI-7U-8jx"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9WW-OK-AvM">
+                                                <rect key="frame" x="289.66666666666669" y="0.0" width="53.333333333333314" height="25"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Edit"/>
+                                                <connections>
+                                                    <action selector="profileEditButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="z4r-DF-5tZ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="Uex-47-Rau"/>
+                                        </constraints>
+                                    </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IxI-2H-NGP">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="130"/>
+                                        <rect key="frame" x="0.0" y="40" width="343" height="130"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VVR-r4-ENw">
                                                 <rect key="frame" x="106.66666666666666" y="0.0" width="130" height="130"/>
@@ -39,19 +66,19 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Elis Lewis" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4BD-RE-daU">
-                                        <rect key="frame" x="0.0" y="145" width="343" height="21.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="185" width="343" height="21.666666666666657"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="elis_lewis@example.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hfv-sz-PzP">
-                                        <rect key="frame" x="0.0" y="181.66666666666666" width="343" height="20.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="221.66666666666669" width="343" height="20.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemGrayColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Mw9-Qo-p1H">
-                                        <rect key="frame" x="0.0" y="217" width="343" height="227"/>
+                                        <rect key="frame" x="0.0" y="257" width="343" height="187"/>
                                         <color key="backgroundColor" red="0.29510744319999999" green="0.74147727269999997" blue="0.4618254685" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="151" id="hEU-uW-xQz"/>
@@ -119,8 +146,8 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="HnL-Nc-Nva">
                                                 <rect key="frame" x="0.0" y="170" width="343" height="50"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphone.gen1" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cu9-5H-1Ey">
-                                                        <rect key="frame" x="0.0" y="0.6666666666666643" width="40" height="49.333333333333336"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphone" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cu9-5H-1Ey">
+                                                        <rect key="frame" x="0.0" y="0.33333333333333215" width="40" height="49.333333333333343"/>
                                                         <color key="tintColor" red="0.29510744319999999" green="0.74147727269999997" blue="0.4618254685" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="40" id="QCb-jd-aAf"/>
@@ -149,7 +176,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="VyR-A5-vZc">
-                                                        <rect key="frame" x="70" y="0.0" width="74" height="50"/>
+                                                        <rect key="frame" x="70" y="0.0" width="33.666666666666657" height="50"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" red="0.29510744319999999" green="0.74147727269999997" blue="0.4618254685" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <date key="minimumDate" timeIntervalSinceReferenceDate="-3187252924">
@@ -160,14 +187,14 @@
                                                         </date>
                                                     </datePicker>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="figure.dress.line.vertical.figure" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="bvT-1Q-H9L">
-                                                        <rect key="frame" x="174" y="-0.66666666666666785" width="40" height="51.666666666666671"/>
+                                                        <rect key="frame" x="133.66666666666666" y="-0.66666666666666785" width="40" height="51.666666666666671"/>
                                                         <color key="tintColor" red="0.29510744319999999" green="0.74147727269999997" blue="0.4618254685" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="40" id="tES-vc-Hbs"/>
                                                         </constraints>
                                                     </imageView>
                                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M9F-yJ-i4y">
-                                                        <rect key="frame" x="244" y="0.0" width="99" height="50"/>
+                                                        <rect key="frame" x="203.66666666666663" y="0.0" width="139.33333333333337" height="50"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" red="0.29510744319999999" green="0.74147727269999997" blue="0.4618254685" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </pickerView>
@@ -191,10 +218,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="RdT-mI-iV9" id="C0P-ZS-KLw"/>
                         <outlet property="datePicker" destination="VyR-A5-vZc" id="Piq-yw-MyG"/>
                         <outlet property="genderPickerView" destination="M9F-yJ-i4y" id="Lea-XL-SWW"/>
                         <outlet property="mailLabel" destination="Hfv-sz-PzP" id="y6L-Xl-1Rj"/>
                         <outlet property="nameLabel" destination="4BD-RE-daU" id="Guo-Xh-uYU"/>
+                        <outlet property="profileEditButton" destination="9WW-OK-AvM" id="43G-5c-gdN"/>
                         <outlet property="profileImageView" destination="VVR-r4-ENw" id="GbE-Gu-Ne4"/>
                         <outlet property="profileSettingsView" destination="iBT-Wk-kVT" id="knc-ZL-fws"/>
                         <outlet property="settingsTableView" destination="Mw9-Qo-p1H" id="ObJ-0E-3gL"/>
@@ -207,9 +236,10 @@
     </scenes>
     <resources>
         <image name="calendar" catalog="system" width="128" height="107"/>
+        <image name="chevron.left" catalog="system" width="97" height="128"/>
         <image name="envelope" catalog="system" width="128" height="93"/>
         <image name="figure.dress.line.vertical.figure" catalog="system" width="128" height="105"/>
-        <image name="iphone.gen1" catalog="system" width="112" height="128"/>
+        <image name="iphone" catalog="system" width="112" height="128"/>
         <image name="person" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

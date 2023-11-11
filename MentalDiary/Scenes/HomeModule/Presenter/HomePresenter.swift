@@ -8,8 +8,9 @@
 import Foundation
 
 protocol HomePresenterProtocol {
-    func viewDidLoad()
-    func routeToReport()
+    var articlesList: [ArticleCollectionViewCell] { get }
+    func routeToRateScreen()
+    func routeToProfileScreen()
 }
 
 final class HomePresenter: HomePresenterProtocol {
@@ -17,6 +18,12 @@ final class HomePresenter: HomePresenterProtocol {
     //MARK: - Properties -
     private weak var view: HomeViewProtocol?
     private let router: RouterProtocol
+    private(set) var articlesList: [ArticleCollectionViewCell] = [
+        ArticleCollectionViewCell(),
+        ArticleCollectionViewCell(),
+        ArticleCollectionViewCell(),
+        ArticleCollectionViewCell()
+    ]
     
     // MARK: - Life Cycle -
     required init(router: RouterProtocol) {
@@ -28,23 +35,11 @@ final class HomePresenter: HomePresenterProtocol {
         self.view = view
     }
     
-    func viewDidLoad() {
-        updateDate()
-    }
-    
-    func routeToReport() {
+    func routeToRateScreen() {
         router.routeToRateScreen()
     }
-}
-
-// MARK: - Private -
-private extension HomePresenter {
-    func updateDate() {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM, dd, yyyy"
-        let currentDate = Date()
-        let formattedDate = dateFormatter.string(from: currentDate)
-        
-        view?.updateDate(date: formattedDate)
+    
+    func routeToProfileScreen() {
+        router.routeToProfileScreen()
     }
 }

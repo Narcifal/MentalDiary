@@ -10,10 +10,16 @@ import UIKit
 protocol AssemblyProtocol {
     func createHomeViewController(router: RouterProtocol) -> UIViewController
     func createMediaViewController(router: RouterProtocol) -> UIViewController
-    func createRateViewController(router: RouterProtocol) -> UIViewController
+    func createRateViewController(
+        router: RouterProtocol,
+        navigationController: UINavigationController
+    ) -> UIViewController
     func createProfileViewController(router: RouterProtocol) -> UIViewController
-    func createShareViewController(router: RouterProtocol) -> UIViewController
-    func createStatisticViewController(router: RouterProtocol) -> UIViewController
+    func createShareViewController(
+        router: RouterProtocol,
+        navigationController: UINavigationController
+    ) -> UIViewController
+    func createStatisticsViewController(router: RouterProtocol) -> UIViewController
 }
 
 final class Assembly: AssemblyProtocol {
@@ -45,7 +51,8 @@ final class Assembly: AssemblyProtocol {
         return viewController
     }
     
-    func createStatisticViewController(router: RouterProtocol) -> UIViewController {
+    ///
+    func createStatisticsViewController(router: RouterProtocol) -> UIViewController {
         let presenter = MediaPresenter(router: router)
         let viewController = Storyboard.Media.mediaViewController.instantiate()
         presenter.inject(view: viewController)
@@ -66,16 +73,28 @@ final class Assembly: AssemblyProtocol {
         return viewController
     }
     
-    func createShareViewController(router: RouterProtocol) -> UIViewController {
-        let presenter = SharePresenter(router: router)
+    func createShareViewController(
+        router: RouterProtocol,
+        navigationController: UINavigationController
+    ) -> UIViewController {
+        let presenter = SharePresenter(
+            router: router,
+            navigationController: navigationController
+        )
         let viewController = Storyboard.Share.shareViewController.instantiate()
         presenter.inject(view: viewController)
         viewController.presenter = presenter
         return viewController
     }
     
-    func createRateViewController(router: RouterProtocol) -> UIViewController {
-        let presenter = RatePresenter(router: router)
+    func createRateViewController(
+        router: RouterProtocol,
+        navigationController: UINavigationController
+    ) -> UIViewController {
+        let presenter = RatePresenter(
+            router: router,
+            navigationController: navigationController
+        )
         let viewController = Storyboard.Rate.rateViewController.instantiate()
         presenter.inject(view: viewController)
         viewController.presenter = presenter
