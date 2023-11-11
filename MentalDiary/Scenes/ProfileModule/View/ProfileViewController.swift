@@ -71,6 +71,13 @@ private extension ProfileViewController {
         profileImageView.layer.cornerRadius = cornerRadius
         profileImageView.layer.cornerCurve = .continuous
         profileImageView.clipsToBounds = true
+        profileImageView.isUserInteractionEnabled = true
+        
+        let tapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(openImagePicker)
+        )
+        profileImageView.addGestureRecognizer(tapGesture)
     }
     
     func setupSettingsTableView() {
@@ -86,6 +93,13 @@ private extension ProfileViewController {
         )
     }
     
+    @objc func openImagePicker() {
+        let picker = UIImagePickerController()
+        picker.allowsEditing = true
+        picker.delegate = self
+        present(picker, animated: true)
+    }
+    
     func hideNeededView() {
         isStarterScreen.toggle()
         
@@ -93,6 +107,10 @@ private extension ProfileViewController {
         settingsTableView.isHidden = isStarterScreen
         nameLabel.isHidden = isStarterScreen
         mailLabel.isHidden = isStarterScreen
+    }
+    
+    func updateImageView(image: UIImage) {
+        profileImageView.image = image
     }
 }
 
@@ -140,6 +158,24 @@ extension ProfileViewController: UIPickerViewDataSource {
     }
 }
 
-extension ProfileViewController: UIPickerViewDelegate {
+extension ProfileViewController: UIPickerViewDelegate { }
 
+extension ProfileViewController:
+    UIImagePickerControllerDelegate,
+    UINavigationControllerDelegate {
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
+    }
+    
+    func imagePickerController(
+        _ picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]
+    ) {
+        if let originalImage = info[.editedImage] as? UIImage {
+            updateImageView(image: originalImage)
+        }
+        
+        picker.dismiss(animated: true)
+    }
 }

@@ -21,7 +21,6 @@ final class HomePresenter: HomePresenterProtocol {
     private(set) var articlesList: [ArticleCollectionViewCell] = [
         ArticleCollectionViewCell(),
         ArticleCollectionViewCell(),
-        ArticleCollectionViewCell(),
         ArticleCollectionViewCell()
     ]
     

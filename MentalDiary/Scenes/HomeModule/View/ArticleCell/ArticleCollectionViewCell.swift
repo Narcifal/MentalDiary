@@ -25,8 +25,11 @@ class ArticleCollectionViewCell: UICollectionViewCell {
     static let identifier = "ArticleCollectionViewCell"
     
     // MARK: - UIComponents -
-    private let placeholderView: UIView = {
-        let stackView = UIView()
+    private let stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.distribution = .fill
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.clipsToBounds = true
         return stackView
@@ -61,7 +64,6 @@ class ArticleCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Iternal -
     func configure(image: UIImage, text: String) {
-        setupView()
         articleImageView.image = image
         articleLabel.text = text
     }
@@ -70,30 +72,28 @@ class ArticleCollectionViewCell: UICollectionViewCell {
 private extension ArticleCollectionViewCell {
     
     func setupView() {
-        addSubview(placeholderView)
+        contentView.addSubview(stackView)
         
-        placeholderView.addSubview(articleImageView)
-        placeholderView.addSubview(articleLabel)
+        stackView.addArrangedSubview(articleImageView)
+        stackView.addArrangedSubview(articleLabel)
         
         NSLayoutConstraint.activate([
-            placeholderView.topAnchor.constraint(equalTo: self.topAnchor),
-            placeholderView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            placeholderView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            placeholderView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            stackView.widthAnchor.constraint(equalToConstant: contentView.bounds.width),
+            stackView.heightAnchor.constraint(equalToConstant: contentView.bounds.height),
             
             articleImageView.heightAnchor.constraint(
-                equalTo: placeholderView.heightAnchor,
+                equalTo: stackView.heightAnchor,
                 multiplier: Constant.imageViewHeight
             ),
             articleLabel.heightAnchor.constraint(
-                equalTo: placeholderView.heightAnchor,
+                equalTo: stackView.heightAnchor,
                 multiplier: Constant.articleLabelHeight
             )
         ])
         
-        placeholderView.layer.cornerRadius = Constant.cornerRadius
-        placeholderView.layer.cornerCurve = .continuous
-        placeholderView.layer.borderWidth = Constant.borderWidth
-        placeholderView.layer.borderColor = UIColor.lightGray.cgColor
+        stackView.layer.cornerRadius = Constant.cornerRadius
+        stackView.layer.cornerCurve = .continuous
+        stackView.layer.borderWidth = Constant.borderWidth
+        stackView.layer.borderColor = UIColor.lightGray.cgColor
     }
 }

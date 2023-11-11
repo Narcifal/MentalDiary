@@ -29,7 +29,7 @@ final class HomeViewController: UIViewController {
     @IBOutlet private weak var fillDiaryButton: UIButton!
     @IBOutlet private weak var diaryAchievementView: UIView!
     @IBOutlet private weak var pageControl: UIPageControl!
-    
+
     // MARK: - Life Cycle -
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,7 +71,7 @@ private extension HomeViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.isPagingEnabled = true
-        collectionView.contentInset = .zero
+        
         collectionView.register(
             ArticleCollectionViewCell.self,
             forCellWithReuseIdentifier: ArticleCollectionViewCell.identifier
@@ -115,9 +115,8 @@ extension HomeViewController: UICollectionViewDataSource {
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.bounds.width - 4
+        let width = collectionView.bounds.width-10
         let height = collectionView.bounds.height
         return CGSize(width: width, height: height)
     }
-
 }
