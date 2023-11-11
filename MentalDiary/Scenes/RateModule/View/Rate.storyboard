@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Rate View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="RateViewController" id="Y6W-OH-hqX" customClass="RateViewController" customModule="MentalDiary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="QPh-ua-ooA">
+                                <rect key="frame" x="40" y="99" width="313" height="679"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hU-aG-Hwj">
+                                        <rect key="frame" x="0.0" y="0.0" width="313" height="250"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iYe-Pm-YPD">
+                                                <rect key="frame" x="41.666666666666686" y="10" width="230" height="230"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="230" id="Eba-Oa-9nD"/>
+                                                    <constraint firstAttribute="height" constant="230" id="PPW-b5-B8i"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="6tx-EX-ZAM"/>
+                                            <constraint firstItem="iYe-Pm-YPD" firstAttribute="centerX" secondItem="2hU-aG-Hwj" secondAttribute="centerX" id="S56-hQ-tx8"/>
+                                            <constraint firstItem="iYe-Pm-YPD" firstAttribute="centerY" secondItem="2hU-aG-Hwj" secondAttribute="centerY" id="SrJ-Wb-sqt"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate your mental health" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ix-sA-KrX">
+                                        <rect key="frame" x="0.0" y="290" width="313" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="4" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="8ls-Xl-5zb">
+                                        <rect key="frame" x="-2" y="354" width="317" height="51"/>
+                                        <color key="tintColor" red="0.29510744319999999" green="0.74147727269999997" blue="0.4618254685" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="sQl-zW-36J"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="rateSliderDidChange:" destination="Y6W-OH-hqX" eventType="valueChanged" id="KWN-X5-ByY"/>
+                                        </connections>
+                                    </slider>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M4X-8Y-awT">
+                                        <rect key="frame" x="0.0" y="444" width="313" height="145"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npY-Yb-6YC">
+                                        <rect key="frame" x="0.0" y="629" width="313" height="50"/>
+                                        <color key="backgroundColor" red="0.29510744319999999" green="0.74147727269999997" blue="0.4618254685" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="bmr-Rd-zeL"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Next step">
+                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="tappedNextButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Rj1-2D-WTm"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="QPh-ua-ooA" secondAttribute="bottom" constant="40" id="IxQ-eS-AKh"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="QPh-ua-ooA" secondAttribute="trailing" constant="40" id="bKE-ZO-yJU"/>
+                            <constraint firstItem="QPh-ua-ooA" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="40" id="oAx-Cf-v9A"/>
+                            <constraint firstItem="QPh-ua-ooA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="s4a-rW-RQ3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="nextButton" destination="npY-Yb-6YC" id="7P1-aY-Tdo"/>
+                        <outlet property="rateImageView" destination="iYe-Pm-YPD" id="CxW-2k-aZH"/>
+                        <outlet property="rateSlider" destination="8ls-Xl-5zb" id="LhV-49-FEM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="26" y="-2"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
