@@ -58,7 +58,7 @@ final class RatePresenter: RatePresenterProtocol {
         router.routeToShareScreen(navigationController: navigationController)
     }
     
-    @objc func backButtonTapped() {
+    func backButtonTapped() {
         router.backToTabBarTapped()
     }
 }

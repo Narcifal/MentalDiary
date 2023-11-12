@@ -7,7 +7,9 @@
 
 import UIKit
 
-protocol SharePresenterProtocol: AnyObject { }
+protocol SharePresenterProtocol: AnyObject {
+    func backButtonTapped()
+}
 
 final class SharePresenter: SharePresenterProtocol {
     
@@ -15,12 +17,6 @@ final class SharePresenter: SharePresenterProtocol {
     private weak var view: ShareViewProtocol?
     private let router: RouterProtocol
     private let navigationController: UINavigationController
-//    private lazy var backButton: UIBarButtonItem = {
-//        let button = UIBarButtonItem()
-//        button.image = UIImage(systemName: Constant.backButtonImage)
-//        button.target = self
-//        return button
-//    }()
         
     // MARK: - Life Cycle -
     required init(
@@ -36,4 +32,7 @@ final class SharePresenter: SharePresenterProtocol {
         self.view = view
     }
     
+    func backButtonTapped() {
+        router.back(navigationController: navigationController)
+    }
 }

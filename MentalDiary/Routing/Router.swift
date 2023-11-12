@@ -13,6 +13,7 @@ protocol RouterProtocol {
     func routeToShareScreen(navigationController: UINavigationController)
     func routeToProfileScreen()
     func backToTabBarTapped()
+    func back(navigationController: UINavigationController)
 }
 
 final class Router: RouterProtocol {
@@ -80,5 +81,9 @@ extension Router {
     
     func backToTabBarTapped() {
         tabBarController?.dismiss(animated: true, completion: nil)
+    }
+    
+    func back(navigationController: UINavigationController) {
+        navigationController.popViewController(animated: true)
     }
 }
