@@ -29,7 +29,7 @@ final class HomeViewController: UIViewController {
     @IBOutlet private weak var fillDiaryButton: UIButton!
     @IBOutlet private weak var diaryAchievementView: UIView!
     @IBOutlet private weak var pageControl: UIPageControl!
-
+    
     // MARK: - Life Cycle -
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,15 +68,17 @@ private extension HomeViewController {
     }
     
     func setupCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 0
+        collectionView.setCollectionViewLayout(layout, animated: false)
+        collectionView.isPagingEnabled = true
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.isPagingEnabled = true
-        
         collectionView.register(
             ArticleCollectionViewCell.self,
             forCellWithReuseIdentifier: ArticleCollectionViewCell.identifier
         )
-
         collectionView.layer.cornerRadius = Constant.cornerRadiusArticleView
         collectionView.layer.cornerCurve = .continuous
     }
@@ -94,7 +96,7 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return presenter.articlesList.count
     }
-        
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: ArticleCollectionViewCell.identifier,
@@ -113,10 +115,34 @@ extension HomeViewController: UICollectionViewDataSource {
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.bounds.width-10
-        let height = collectionView.bounds.height
-        return CGSize(width: width, height: height)
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        let width = collectionView.bounds.width - 20
+        return CGSize(width: width, height: collectionView.bounds.height)
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        minimumLineSpacingForSectionAt section: Int
+    ) -> CGFloat {
+        return 20
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        insetForSectionAt section: Int
+    ) -> UIEdgeInsets {
+        let inset: CGFloat = 20 / 2
+        return UIEdgeInsets(
+            top: 0,
+            left: inset,
+            bottom: 0,
+            right: inset
+        )
     }
 }

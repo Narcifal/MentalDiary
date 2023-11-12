@@ -4,11 +4,7 @@
 //
 //  Created by Denys Niestierov on 11.11.2023.
 //
-
-import Foundation
-
 import UIKit
-
 
 class ArticleCollectionViewCell: UICollectionViewCell {
     
@@ -25,11 +21,8 @@ class ArticleCollectionViewCell: UICollectionViewCell {
     static let identifier = "ArticleCollectionViewCell"
     
     // MARK: - UIComponents -
-    private let stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.alignment = .fill
-        stackView.distribution = .fill
+    private let placeholderView: UIView = {
+        let stackView = UIView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.clipsToBounds = true
         return stackView
@@ -70,30 +63,35 @@ class ArticleCollectionViewCell: UICollectionViewCell {
 }
 
 private extension ArticleCollectionViewCell {
-    
     func setupView() {
-        contentView.addSubview(stackView)
+        addSubview(placeholderView)
+        placeholderView.addSubview(articleImageView)
+        placeholderView.addSubview(articleLabel)
         
-        stackView.addArrangedSubview(articleImageView)
-        stackView.addArrangedSubview(articleLabel)
-        
+        let imageHeight = self.bounds.height * Constant.imageViewHeight
+        let titleHeight = self.bounds.height * Constant.articleLabelHeight
+
         NSLayoutConstraint.activate([
-            stackView.widthAnchor.constraint(equalToConstant: contentView.bounds.width),
-            stackView.heightAnchor.constraint(equalToConstant: contentView.bounds.height),
+            placeholderView.heightAnchor.constraint(equalTo: self.heightAnchor),
+            placeholderView.widthAnchor.constraint(equalToConstant: self.bounds.width),
+            placeholderView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            placeholderView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             
-            articleImageView.heightAnchor.constraint(
-                equalTo: stackView.heightAnchor,
-                multiplier: Constant.imageViewHeight
-            ),
-            articleLabel.heightAnchor.constraint(
-                equalTo: stackView.heightAnchor,
-                multiplier: Constant.articleLabelHeight
-            )
-        ])
+            articleImageView.heightAnchor.constraint(equalToConstant: imageHeight),
+            articleImageView.leadingAnchor.constraint(equalTo: placeholderView.leadingAnchor),
+            articleImageView.trailingAnchor.constraint(equalTo: placeholderView.trailingAnchor),
+            articleImageView.topAnchor.constraint(equalTo: placeholderView.topAnchor),
+            
+            articleLabel.heightAnchor.constraint(equalToConstant: titleHeight),
+            articleLabel.leadingAnchor.constraint(equalTo: placeholderView.leadingAnchor),
+            articleLabel.trailingAnchor.constraint(equalTo: placeholderView.trailingAnchor),
+            articleLabel.topAnchor.constraint(equalTo: articleImageView.bottomAnchor),
         
-        stackView.layer.cornerRadius = Constant.cornerRadius
-        stackView.layer.cornerCurve = .continuous
-        stackView.layer.borderWidth = Constant.borderWidth
-        stackView.layer.borderColor = UIColor.lightGray.cgColor
+        ])
+
+        placeholderView.layer.cornerRadius = Constant.cornerRadius
+        placeholderView.layer.cornerCurve = .continuous
+        placeholderView.layer.borderWidth = Constant.borderWidth
+        placeholderView.layer.borderColor = UIColor.lightGray.cgColor
     }
 }
