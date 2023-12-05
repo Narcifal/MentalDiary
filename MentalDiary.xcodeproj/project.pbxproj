@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4E1D61010835316F684804FE /* Pods_MentalDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B931E03099A4211262930B97 /* Pods_MentalDiary.framework */; };
+		5FCA9693F26075B21A341A19 /* Pods_MentalDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FE718B919906A4601F1BDC /* Pods_MentalDiary.framework */; };
 		9A0F6BBB2AB862A000CBB409 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0F6BBA2AB862A000CBB409 /* Assembly.swift */; };
 		9A10D7D82AB5F15D002D1571 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A10D7D72AB5F15D002D1571 /* Router.swift */; };
 		9A10D7DF2AB5F341002D1571 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A10D7DE2AB5F341002D1571 /* HomePresenter.swift */; };
@@ -45,11 +45,17 @@
 		9AE27DF42AFFFBA6002BE0AC /* StatisticsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE27DF32AFFFBA6002BE0AC /* StatisticsPresenter.swift */; };
 		9AE27DF62AFFFBD1002BE0AC /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE27DF52AFFFBD1002BE0AC /* StatisticsViewController.swift */; };
 		9AE27DF82AFFFBD9002BE0AC /* Statistics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AE27DF72AFFFBD9002BE0AC /* Statistics.storyboard */; };
+		B035CBFA2B1F4D0400352E24 /* DiaryNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = B035CBF92B1F4D0400352E24 /* DiaryNote.swift */; };
+		B035CBFD2B1F792C00352E24 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B035CBFC2B1F792C00352E24 /* NoteTableViewCell.swift */; };
+		B035CC002B1F7E7800352E24 /* NotesDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B035CBFF2B1F7E7800352E24 /* NotesDatabase.swift */; };
+		B035CC022B1F968700352E24 /* UINotification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B035CC012B1F968700352E24 /* UINotification+Extension.swift */; };
 		C7FC73CA2B1E9124008CCC50 /* MockFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FC73C92B1E9124008CCC50 /* MockFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		092B0DCBED209D7960FC3CC2 /* Pods-MentalDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MentalDiary.release.xcconfig"; path = "Target Support Files/Pods-MentalDiary/Pods-MentalDiary.release.xcconfig"; sourceTree = "<group>"; };
+		493657A97A2484399457C229 /* Pods-MentalDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MentalDiary.debug.xcconfig"; path = "Target Support Files/Pods-MentalDiary/Pods-MentalDiary.debug.xcconfig"; sourceTree = "<group>"; };
+		50B3B4C586590CC2782771A1 /* Pods-MentalDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MentalDiary.release.xcconfig"; path = "Target Support Files/Pods-MentalDiary/Pods-MentalDiary.release.xcconfig"; sourceTree = "<group>"; };
+		81FE718B919906A4601F1BDC /* Pods_MentalDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MentalDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A0F6BBA2AB862A000CBB409 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		9A10D7D72AB5F15D002D1571 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		9A10D7DE2AB5F341002D1571 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
@@ -90,9 +96,11 @@
 		9AE27DF32AFFFBA6002BE0AC /* StatisticsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsPresenter.swift; sourceTree = "<group>"; };
 		9AE27DF52AFFFBD1002BE0AC /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		9AE27DF72AFFFBD9002BE0AC /* Statistics.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Statistics.storyboard; sourceTree = "<group>"; };
-		B931E03099A4211262930B97 /* Pods_MentalDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MentalDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B035CBF92B1F4D0400352E24 /* DiaryNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryNote.swift; sourceTree = "<group>"; };
+		B035CBFC2B1F792C00352E24 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
+		B035CBFF2B1F7E7800352E24 /* NotesDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesDatabase.swift; sourceTree = "<group>"; };
+		B035CC012B1F968700352E24 /* UINotification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINotification+Extension.swift"; sourceTree = "<group>"; };
 		C7FC73C92B1E9124008CCC50 /* MockFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFactory.swift; sourceTree = "<group>"; };
-		DC6DF2AF4065D9C14DC7C334 /* Pods-MentalDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MentalDiary.debug.xcconfig"; path = "Target Support Files/Pods-MentalDiary/Pods-MentalDiary.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,21 +108,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E1D61010835316F684804FE /* Pods_MentalDiary.framework in Frameworks */,
+				5FCA9693F26075B21A341A19 /* Pods_MentalDiary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		958ED232357582064BF5C9F8 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B931E03099A4211262930B97 /* Pods_MentalDiary.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		9A10D7D42AB5F128002D1571 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +186,7 @@
 			children = (
 				9A225B772B000825007FF057 /* UITableViewCell+Extension.swift */,
 				9A225B792B001C17007FF057 /* Date+Extension.swift */,
+				B035CC012B1F968700352E24 /* UINotification+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -226,7 +227,7 @@
 				9A2D14DF2AB5EDAB00E7DE95 /* MentalDiary */,
 				9A2D14DE2AB5EDAB00E7DE95 /* Products */,
 				D92890F7119EC6CB599630C4 /* Pods */,
-				958ED232357582064BF5C9F8 /* Frameworks */,
+				E6EA0605A09526A1DB43EB54 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -243,7 +244,9 @@
 			children = (
 				9A10D7D42AB5F128002D1571 /* App */,
 				9A10D7D92AB5F1EB002D1571 /* Scenes */,
+				B035CBFE2B1F7E5D00352E24 /* Services */,
 				9A84F9B22AB7734E004105B1 /* Generated */,
+				B035CBF82B1F4CD100352E24 /* Models */,
 				9A10D7D52AB5F135002D1571 /* Routing */,
 				9A10D7E02AB5F3D0002D1571 /* Extensions */,
 				9A10D7E32AB5F5C0002D1571 /* Resources */,
@@ -439,6 +442,7 @@
 		9AE27DF12AFFFB72002BE0AC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B035CBFB2B1F791500352E24 /* Cell */,
 				9AE27DF52AFFFBD1002BE0AC /* StatisticsViewController.swift */,
 				9AE27DF72AFFFBD9002BE0AC /* Statistics.storyboard */,
 			);
@@ -452,13 +456,45 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		B035CBF82B1F4CD100352E24 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B035CBF92B1F4D0400352E24 /* DiaryNote.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B035CBFB2B1F791500352E24 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B035CBFC2B1F792C00352E24 /* NoteTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B035CBFE2B1F7E5D00352E24 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B035CBFF2B1F7E7800352E24 /* NotesDatabase.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		D92890F7119EC6CB599630C4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				DC6DF2AF4065D9C14DC7C334 /* Pods-MentalDiary.debug.xcconfig */,
-				092B0DCBED209D7960FC3CC2 /* Pods-MentalDiary.release.xcconfig */,
+				493657A97A2484399457C229 /* Pods-MentalDiary.debug.xcconfig */,
+				50B3B4C586590CC2782771A1 /* Pods-MentalDiary.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E6EA0605A09526A1DB43EB54 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				81FE718B919906A4601F1BDC /* Pods_MentalDiary.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -468,7 +504,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A2D14F12AB5EDAC00E7DE95 /* Build configuration list for PBXNativeTarget "MentalDiary" */;
 			buildPhases = (
-				3CE7B503BF4AE27408C17499 /* [CP] Check Pods Manifest.lock */,
+				5FDC27EF6888DB000BBCFB04 /* [CP] Check Pods Manifest.lock */,
 				C7A043602AFC5AE00052EFB8 /* SwiftGen */,
 				9A2D14D92AB5EDAB00E7DE95 /* Sources */,
 				9A2D14DA2AB5EDAB00E7DE95 /* Frameworks */,
@@ -538,7 +574,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3CE7B503BF4AE27408C17499 /* [CP] Check Pods Manifest.lock */ = {
+		5FDC27EF6888DB000BBCFB04 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -589,8 +625,10 @@
 				9A225B7A2B001C17007FF057 /* Date+Extension.swift in Sources */,
 				9A84F9C22AB77B78004105B1 /* Images+Colors+Generated.swift in Sources */,
 				9A10D7D82AB5F15D002D1571 /* Router.swift in Sources */,
+				B035CBFD2B1F792C00352E24 /* NoteTableViewCell.swift in Sources */,
 				9A6A8CE02AFACA4B00A2361E /* ProfileViewController.swift in Sources */,
 				9A2D14E52AB5EDAB00E7DE95 /* HomeViewController.swift in Sources */,
+				B035CC002B1F7E7800352E24 /* NotesDatabase.swift in Sources */,
 				9A6A8CC52AFAC95900A2361E /* RateViewController.swift in Sources */,
 				9AE27DF62AFFFBD1002BE0AC /* StatisticsViewController.swift in Sources */,
 				9A2D14E12AB5EDAB00E7DE95 /* AppDelegate.swift in Sources */,
@@ -602,7 +640,9 @@
 				9A225B7D2B001EBA007FF057 /* ArticleCollectionViewCell.swift in Sources */,
 				9A84F9BA2AB777EE004105B1 /* Strings+Generated.swift in Sources */,
 				9AE27DF42AFFFBA6002BE0AC /* StatisticsPresenter.swift in Sources */,
+				B035CBFA2B1F4D0400352E24 /* DiaryNote.swift in Sources */,
 				9A6A8CCE2AFAC9B700A2361E /* SharePresenter.swift in Sources */,
+				B035CC022B1F968700352E24 /* UINotification+Extension.swift in Sources */,
 				9A46AF022AC4320C00977980 /* MediaViewController.swift in Sources */,
 				9A46AF082AC4470E00977980 /* Storyboard+Generated.swift in Sources */,
 				9A2D14E32AB5EDAB00E7DE95 /* SceneDelegate.swift in Sources */,
@@ -756,20 +796,21 @@
 		};
 		9A2D14F22AB5EDAC00E7DE95 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC6DF2AF4065D9C14DC7C334 /* Pods-MentalDiary.debug.xcconfig */;
+			baseConfigurationReference = 493657A97A2484399457C229 /* Pods-MentalDiary.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9A2Y9UTZLK;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MentalDiary/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -785,20 +826,21 @@
 		};
 		9A2D14F32AB5EDAC00E7DE95 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 092B0DCBED209D7960FC3CC2 /* Pods-MentalDiary.release.xcconfig */;
+			baseConfigurationReference = 50B3B4C586590CC2782771A1 /* Pods-MentalDiary.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9A2Y9UTZLK;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MentalDiary/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

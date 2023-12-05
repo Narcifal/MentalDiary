@@ -17,12 +17,16 @@ protocol AssemblyProtocol {
     func createProfileViewController(router: RouterProtocol) -> UIViewController
     func createShareViewController(
         router: RouterProtocol,
-        navigationController: UINavigationController
+        navigationController: UINavigationController,
+        mentalHealthRate: Int
     ) -> UIViewController
     func createStatisticsViewController(router: RouterProtocol) -> UIViewController
 }
 
 final class Assembly: AssemblyProtocol {
+    @MainActor
+    private let notesDatabase = NotesDatabase()
+    
     // MARK: - Iternal -
     func createHomeViewController(router: RouterProtocol) -> UIViewController {
         let presenter = HomePresenter(router: router)
@@ -53,8 +57,8 @@ final class Assembly: AssemblyProtocol {
     
     ///
     func createStatisticsViewController(router: RouterProtocol) -> UIViewController {
-        let presenter = MediaPresenter(router: router)
-        let viewController = Storyboard.Media.mediaViewController.instantiate()
+        let presenter = StatisticsPresenter(router: router, notesDatabase: notesDatabase)
+        let viewController = Storyboard.Statistics.statisticsViewController.instantiate()
         presenter.inject(view: viewController)
         viewController.presenter = presenter
         viewController.tabBarItem = UITabBarItem(
@@ -75,11 +79,14 @@ final class Assembly: AssemblyProtocol {
     
     func createShareViewController(
         router: RouterProtocol,
-        navigationController: UINavigationController
+        navigationController: UINavigationController,
+        mentalHealthRate: Int
     ) -> UIViewController {
         let presenter = SharePresenter(
             router: router,
-            navigationController: navigationController
+            navigationController: navigationController,
+            notesDatabase: notesDatabase,
+            mentalHealthRate: mentalHealthRate
         )
         let viewController = Storyboard.Share.shareViewController.instantiate()
         presenter.inject(view: viewController)

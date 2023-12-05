@@ -47,7 +47,6 @@ final class ShareViewController: UIViewController {
     // MARK: - LifeCycle -
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationItem.leftBarButtonItem = backButton
         progressBar.progress = Constant.progress
         
@@ -87,7 +86,13 @@ private extension ShareViewController {
     }
     
     @IBAction private func tappedShareButton(_ sender: UIButton) {
-        //
+        guard let situation = situationTextView.text,
+            let thoughts = thoughtsTextView.text,
+            let feelings = feelingsTextView.text else {
+            return
+        }
+                
+        presenter.onShareAction(with: situation, thoughts, feelings)
     }
 }
 

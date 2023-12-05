@@ -10,10 +10,10 @@ import UIKit
 protocol RouterProtocol {
     func setupTabBarController()
     func routeToRateScreen()
-    func routeToShareScreen(navigationController: UINavigationController)
+    func routeToShareScreen(navigationController: UINavigationController, mentalHealthRate: Int)
     func routeToProfileScreen()
     func backToTabBarTapped()
-    func back(navigationController: UINavigationController)
+    func back(navigationController: UINavigationController, animated: Bool)
 }
 
 final class Router: RouterProtocol {
@@ -62,10 +62,12 @@ extension Router {
         tabBarController?.present(navigationController, animated: true, completion: nil)
     }
     
-    func routeToShareScreen(navigationController: UINavigationController) {
+    func routeToShareScreen(navigationController: UINavigationController,
+                            mentalHealthRate: Int) {
         let shareModule = assembly.createShareViewController(
             router: self,
-            navigationController: navigationController
+            navigationController: navigationController, 
+            mentalHealthRate: mentalHealthRate
         )
         
         navigationController.pushViewController(shareModule, animated: false)
@@ -83,7 +85,7 @@ extension Router {
         tabBarController?.dismiss(animated: true, completion: nil)
     }
     
-    func back(navigationController: UINavigationController) {
+    func back(navigationController: UINavigationController, animated: Bool) {
         navigationController.popViewController(animated: true)
     }
 }
