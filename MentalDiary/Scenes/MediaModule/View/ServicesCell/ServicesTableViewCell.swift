@@ -1,5 +1,5 @@
 //
-//  ArticleTableViewCell.swift
+//  ServicesTableViewCell.swift
 //  MentalDiary
 //
 //  Created by Denys Niestierov on 11.11.2023.
@@ -7,22 +7,17 @@
 
 import UIKit
 
-import UIKit
-
-import UIKit
-
-class ArticleTableViewCell: UITableViewCell {
-    
+class ServicesTableViewCell: UITableViewCell {
     private enum Constant {
-        static let articleImageViewHeight: CGFloat = 110
-        static let articleTitleLabelHeight: CGFloat = 40
+        static let servicesImageViewHeight: CGFloat = 110
+        static let servicesTitleLabelHeight: CGFloat = 40
         static let borderWidth: CGFloat = 2
         static let cornerRadius: CGFloat = 25
         static let verticalInsetConstraint: CGFloat = 10
         static let horizontalInsetConstraint: CGFloat = 20
     }
     
-    static let identifier = "ArticleTableViewCell"
+    static let identifier = "ServicesTableViewCell"
     
     // MARK: - UIComponents -
     private lazy var stackView: UIStackView = {
@@ -35,18 +30,18 @@ class ArticleTableViewCell: UITableViewCell {
         contentView.addSubview(stack)
         return stack
     }()
-    private lazy var articleImageView: UIImageView = {
+    private lazy var servicesImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
-        imageView.heightAnchor.constraint(equalToConstant: Constant.articleImageViewHeight)
+        imageView.heightAnchor.constraint(equalToConstant: Constant.servicesImageViewHeight)
             .isActive = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    private lazy var articleTitleLabel: UILabel = {
+    private lazy var servicesTitleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.heightAnchor.constraint(equalToConstant: Constant.articleTitleLabelHeight)
+        label.heightAnchor.constraint(equalToConstant: Constant.servicesTitleLabelHeight)
             .isActive = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -65,16 +60,15 @@ class ArticleTableViewCell: UITableViewCell {
 
     // MARK: - Iternal -
     func configure(image: UIImage, text: String) {
-        articleImageView.image = image
-        articleTitleLabel.text = text
+        servicesImageView.image = image
+        servicesTitleLabel.text = text
     }
 }
 
-private extension ArticleTableViewCell {
-    
+private extension ServicesTableViewCell {
     func setupViews() {
-        stackView.addArrangedSubview(articleImageView)
-        stackView.addArrangedSubview(articleTitleLabel)
+        stackView.addArrangedSubview(servicesImageView)
+        stackView.addArrangedSubview(servicesTitleLabel)
         
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: Constant.horizontalInsetConstraint),

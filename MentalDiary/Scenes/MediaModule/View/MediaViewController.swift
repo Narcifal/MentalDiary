@@ -18,7 +18,7 @@ final class MediaViewController: UIViewController {
         static let sizeTitleLabel: CGFloat = 18
         
         static let mediaCellHeight: CGFloat = 140
-        static let articleCellHeight = UITableView.automaticDimension
+        static let servicesCellHeight = UITableView.automaticDimension
     }
     
     // MARK: - Properties -
@@ -27,7 +27,7 @@ final class MediaViewController: UIViewController {
     // MARK: - UIComponents -
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var videoCatalogButton: UIButton!
-    @IBOutlet private weak var articleCatalogButton: UIButton!
+    @IBOutlet private weak var servicesCatalogButton: UIButton!
     
     // MARK: - Life Cycle -
     override func viewDidLoad() {
@@ -43,8 +43,8 @@ final class MediaViewController: UIViewController {
         changeActivityButtonColor(with: sender)
     }
     
-    @IBAction func didTapArticleCatalog(_ sender: UIButton) {
-        presenter.articlesTabTapped()
+    @IBAction func didTapservicesCatalog(_ sender: UIButton) {
+        presenter.servicesTabTapped()
         changeActivityButtonColor(with: sender)
     }
     
@@ -60,9 +60,9 @@ private extension MediaViewController {
         videoCatalogButton.layer.cornerCurve = .continuous
         videoCatalogButton.titleLabel?.font = .boldSystemFont(ofSize: Constant.sizeTitleLabel)
         
-        articleCatalogButton.layer.cornerRadius = Constant.viewCornerRadius
-        articleCatalogButton.layer.cornerCurve = .continuous
-        articleCatalogButton.titleLabel?.font = .boldSystemFont(ofSize: Constant.sizeTitleLabel)
+        servicesCatalogButton.layer.cornerRadius = Constant.viewCornerRadius
+        servicesCatalogButton.layer.cornerCurve = .continuous
+        servicesCatalogButton.titleLabel?.font = .boldSystemFont(ofSize: Constant.sizeTitleLabel)
     }
     
     func setupTableView() {
@@ -74,8 +74,8 @@ private extension MediaViewController {
             forCellReuseIdentifier: Localized.MediaModule.TableViewCell.identifier
         )
         tableView.register(
-            ArticleTableViewCell.self,
-            forCellReuseIdentifier: ArticleTableViewCell.identifier
+            ServicesTableViewCell.self,
+            forCellReuseIdentifier: ServicesTableViewCell.identifier
         )
         
         tableView.backgroundColor = .clear
@@ -86,8 +86,8 @@ private extension MediaViewController {
         button.backgroundColor = UIColor(named: Asset.pureGreen.name)
         switch button {
         case videoCatalogButton:
-            articleCatalogButton.backgroundColor = .lightGray
-        case articleCatalogButton:
+            servicesCatalogButton.backgroundColor = .lightGray
+        case servicesCatalogButton:
             videoCatalogButton.backgroundColor = .lightGray
         default: break
         }
@@ -99,8 +99,8 @@ extension MediaViewController: MediaViewProtocol {}
 extension MediaViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch presenter.selectedListType {
-        case .articlesList:
-            return presenter.articlesList.count
+        case .servicesList:
+            return presenter.servicesList.count
         case .mediaList:
             return presenter.mediaList.count
         }
@@ -108,14 +108,14 @@ extension MediaViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch presenter.selectedListType {
-        case .articlesList:
+        case .servicesList:
             let cell = tableView.dequeueReusableCell(
-                withIdentifier: ArticleTableViewCell.identifier,
+                withIdentifier: ServicesTableViewCell.identifier,
                 for: indexPath
-            ) as! ArticleTableViewCell
+            ) as! ServicesTableViewCell
             cell.selectionStyle = .none
             
-            cell.configure(image: UIImage(named: "test")!, text: "ARTICLEEE")
+            cell.configure(image: UIImage(named: "test")!, text: "servicesEE")
             
             return cell
         case .mediaList:
@@ -133,8 +133,8 @@ extension MediaViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch presenter.selectedListType {
-        case .articlesList:
-            return Constant.articleCellHeight
+        case .servicesList:
+            return Constant.servicesCellHeight
         case .mediaList:
             return Constant.mediaCellHeight
         }
@@ -146,8 +146,8 @@ extension MediaViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         switch presenter.selectedListType {
-        case .articlesList:
-            let cell = tableView.cellForRow(at: indexPath) as! ArticleTableViewCell
+        case .servicesList:
+            let cell = tableView.cellForRow(at: indexPath) as! ServicesTableViewCell
             cell.performSelectionAnimation()
         case .mediaList:
             let cell = tableView.cellForRow(at: indexPath) as! MediaTableViewCell

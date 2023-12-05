@@ -9,23 +9,24 @@ import Foundation
 
 protocol MediaPresenterProtocol: AnyObject {
     var selectedListType: MediaType { get }
-    var articlesList: [ArticleTableViewCell] { get }
+    var servicesList: [ServicesTableViewCell] { get }
     var mediaList: [MediaTableViewCell] { get }
-    func articlesTabTapped()
+    func servicesTabTapped()
     func videoTabTapped()
 }
 
 final class MediaPresenter: MediaPresenterProtocol {
     
     //MARK: - Properties -
+    
     private weak var view: MediaViewProtocol?
     private let router: RouterProtocol
     private(set) var selectedListType: MediaType = .mediaList
-    private(set) var articlesList: [ArticleTableViewCell] = [
-        ArticleTableViewCell(),
-        ArticleTableViewCell(),
-        ArticleTableViewCell(),
-        ArticleTableViewCell(),
+    private(set) var servicesList: [ServicesTableViewCell] = [
+        ServicesTableViewCell(),
+        ServicesTableViewCell(),
+        ServicesTableViewCell(),
+        ServicesTableViewCell(),
     ]
     private(set) var mediaList: [MediaTableViewCell] = [
         MediaTableViewCell(),
@@ -51,13 +52,13 @@ final class MediaPresenter: MediaPresenterProtocol {
         view?.reloadTableView()
     }
     
-    func articlesTabTapped() {
-        selectedListType = .articlesList
+    func servicesTabTapped() {
+        selectedListType = .servicesList
         view?.reloadTableView()
     }
 }
 
 enum MediaType {
     case mediaList
-    case articlesList
+    case servicesList
 }

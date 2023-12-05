@@ -11,7 +11,7 @@
 		9A0F6BBB2AB862A000CBB409 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0F6BBA2AB862A000CBB409 /* Assembly.swift */; };
 		9A10D7D82AB5F15D002D1571 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A10D7D72AB5F15D002D1571 /* Router.swift */; };
 		9A10D7DF2AB5F341002D1571 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A10D7DE2AB5F341002D1571 /* HomePresenter.swift */; };
-		9A225B762B000519007FF057 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A225B752B000519007FF057 /* ArticleTableViewCell.swift */; };
+		9A225B762B000519007FF057 /* ServicesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A225B752B000519007FF057 /* ServicesTableViewCell.swift */; };
 		9A225B782B000825007FF057 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A225B772B000825007FF057 /* UITableViewCell+Extension.swift */; };
 		9A225B7A2B001C17007FF057 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A225B792B001C17007FF057 /* Date+Extension.swift */; };
 		9A225B7D2B001EBA007FF057 /* ArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A225B7C2B001EBA007FF057 /* ArticleCollectionViewCell.swift */; };
@@ -59,7 +59,7 @@
 		9A0F6BBA2AB862A000CBB409 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		9A10D7D72AB5F15D002D1571 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		9A10D7DE2AB5F341002D1571 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
-		9A225B752B000519007FF057 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
+		9A225B752B000519007FF057 /* ServicesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesTableViewCell.swift; sourceTree = "<group>"; };
 		9A225B772B000825007FF057 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		9A225B792B001C17007FF057 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		9A225B7C2B001EBA007FF057 /* ArticleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -203,12 +203,12 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		9A225B742B0004E9007FF057 /* ArticleCell */ = {
+		9A225B742B0004E9007FF057 /* ServicesCell */ = {
 			isa = PBXGroup;
 			children = (
-				9A225B752B000519007FF057 /* ArticleTableViewCell.swift */,
+				9A225B752B000519007FF057 /* ServicesTableViewCell.swift */,
 			);
-			path = ArticleCell;
+			path = ServicesCell;
 			sourceTree = "<group>";
 		};
 		9A225B7B2B001EA7007FF057 /* ArticleCell */ = {
@@ -286,7 +286,7 @@
 				9A46AEFE2AC4320C00977980 /* MediaViewController.swift */,
 				9A46AEFA2AC4320C00977980 /* Media.storyboard */,
 				9A46AEFB2AC4320C00977980 /* MediaCell */,
-				9A225B742B0004E9007FF057 /* ArticleCell */,
+				9A225B742B0004E9007FF057 /* ServicesCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -634,7 +634,7 @@
 				9A2D14E12AB5EDAB00E7DE95 /* AppDelegate.swift in Sources */,
 				9A6A8CDF2AFACA4B00A2361E /* SettingsTableViewCell.swift in Sources */,
 				9A46AF012AC4320C00977980 /* MediaTableViewCell.swift in Sources */,
-				9A225B762B000519007FF057 /* ArticleTableViewCell.swift in Sources */,
+				9A225B762B000519007FF057 /* ServicesTableViewCell.swift in Sources */,
 				9A0F6BBB2AB862A000CBB409 /* Assembly.swift in Sources */,
 				9A10D7DF2AB5F341002D1571 /* HomePresenter.swift in Sources */,
 				9A225B7D2B001EBA007FF057 /* ArticleCollectionViewCell.swift in Sources */,

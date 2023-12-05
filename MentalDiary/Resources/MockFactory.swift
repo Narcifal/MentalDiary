@@ -26,43 +26,43 @@ struct MockFactory {
         ),
     ]
     
-    static let articles = [
-        Article(
+    static let services = [
+        Service(
             title: "Психіатрична допомога українцям за кордоном: як її отримати",
             image: Asset.aboardhelp.image,
             link: "https://visitukraine.today/uk/blog/765/psixiatricna-dopomoga-ukraincyam-za-kordonom-yak-ii-otrimati"
         ),
-        Article(
+        Service(
             title: "ПТСР - посттравматичний стресовий розлад",
             image: Asset.ptsr.image,
             link: "https://meclee.com/blog/obshchie/ptsr-posttravmatichniy-stresoviy-rozlad"
         ),
-        Article(
+        Service(
             title: "Як налагодити стосунки у шлюбі",
             image: Asset.ptsr.image,
             link: "https://meclee.com/blog/obshchie/yak-nalagoditi-stosunki-u-shlyubi"
         ),
-        Article(
+        Service(
             title: "Як зустріти своє кохання: шукаємо другу половинку",
             image: Asset.shlub.image,
             link: "https://meclee.com/blog/obshchie/yak-zustriti-svoye-kohannya-shukayemo-drugu-polovinku"
         ),
-        Article(
+        Service(
             title: "Самотність: прийняти чи боротися?",
             image: Asset.samotnist.image,
             link: "https://meclee.com/blog/obshchie/samotnist-priynyati-chi-borotisya"
         ),
-        Article(
+        Service(
             title: "Фобії та тривожні розлади",
             image: Asset.fobii.image,
             link: "https://meclee.com/blog/obshchie/fobiji-ta-trivozhni-rozladi"
         ),
-        Article(
+        Service(
             title: "Порушення сну: види, причини та вирішення проблеми",
             image: Asset.sleep.image,
             link: "https://meclee.com/blog/obshchie/porushennya-snu-vidi-prichini-ta-virishennya-problemi"
         ),
-        Article(
+        Service(
             title: "Біполярний розлад",
             image: Asset.sleep.image,
             link: "https://meclee.com/blog/obshchie/bipolyarniy-rozlad"
@@ -103,7 +103,7 @@ struct RecommendedService {
     let link: String
 }
 
-struct Article {
+struct Service {
     let title: String
     let image: UIImage
     let link: String
