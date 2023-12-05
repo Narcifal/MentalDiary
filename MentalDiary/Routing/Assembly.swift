@@ -21,6 +21,7 @@ protocol AssemblyProtocol {
         mentalHealthRate: Int
     ) -> UIViewController
     func createStatisticsViewController(router: RouterProtocol) -> UIViewController
+    func createServicesPageViewController(router: RouterProtocol, webViewUrl: String) -> UIViewController
 }
 
 final class Assembly: AssemblyProtocol {
@@ -74,6 +75,13 @@ final class Assembly: AssemblyProtocol {
         let viewController = Storyboard.Profile.profileViewController.instantiate()
         presenter.inject(view: viewController)
         viewController.presenter = presenter
+        return viewController
+    }
+    
+    func createServicesPageViewController(router: RouterProtocol, webViewUrl: String) -> UIViewController {
+        let presenter = ServicesPagePresenter(router: router, webViewUrlString: webViewUrl)
+        let viewController = ServicesPageViewControler(presenter: presenter)
+        presenter.inject(view: viewController)
         return viewController
     }
     

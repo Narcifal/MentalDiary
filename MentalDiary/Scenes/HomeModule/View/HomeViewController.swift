@@ -52,7 +52,7 @@ final class HomeViewController: UIViewController {
 extension HomeViewController: HomeViewProtocol { }
 
 private extension HomeViewController {
-    
+
     func setupView() {
         view.backgroundColor = .white
         
@@ -152,7 +152,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let service = presenter.getServicesListItem(at: indexPath.item)
-        print(service.link)
+        let service = presenter.getServicesListItem(at: indexPath.item).link
+        presenter.routeToServicesPage(webViewUrl: service)
     }
 }

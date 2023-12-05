@@ -12,6 +12,7 @@ protocol HomePresenterProtocol {
     func routeToProfileScreen()
     func getServicesListCount() -> Int
     func getServicesListItem(at index: Int) -> RecommendedService
+    func routeToServicesPage(webViewUrl: String)
 }
 
 final class HomePresenter: HomePresenterProtocol {
@@ -45,5 +46,9 @@ final class HomePresenter: HomePresenterProtocol {
     
     func getServicesListItem(at index: Int) -> RecommendedService {
         servicesList[index]
+    }
+    
+    func routeToServicesPage(webViewUrl: String) {
+        router.routeToServicesPageScreen(webViewUrl: webViewUrl)
     }
 }

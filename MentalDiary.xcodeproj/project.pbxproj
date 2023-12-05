@@ -26,6 +26,8 @@
 		9A46AF022AC4320C00977980 /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A46AEFE2AC4320C00977980 /* MediaViewController.swift */; };
 		9A46AF042AC433D700977980 /* MediaPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A46AF032AC433D700977980 /* MediaPresenter.swift */; };
 		9A46AF082AC4470E00977980 /* Storyboard+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A46AF072AC4470E00977980 /* Storyboard+Generated.swift */; };
+		9A66B7032B1FAC83003430D1 /* ServicesPageViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A66B7022B1FAC83003430D1 /* ServicesPageViewControler.swift */; };
+		9A66B7092B1FC392003430D1 /* ServicesPagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A66B7082B1FC392003430D1 /* ServicesPagePresenter.swift */; };
 		9A6A8CC42AFAC95900A2361E /* RatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6A8CBF2AFAC95900A2361E /* RatePresenter.swift */; };
 		9A6A8CC52AFAC95900A2361E /* RateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6A8CC22AFAC95900A2361E /* RateViewController.swift */; };
 		9A6A8CC62AFAC95900A2361E /* Rate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A6A8CC32AFAC95900A2361E /* Rate.storyboard */; };
@@ -76,6 +78,8 @@
 		9A46AEFE2AC4320C00977980 /* MediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
 		9A46AF032AC433D700977980 /* MediaPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPresenter.swift; sourceTree = "<group>"; };
 		9A46AF072AC4470E00977980 /* Storyboard+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard+Generated.swift"; sourceTree = "<group>"; };
+		9A66B7022B1FAC83003430D1 /* ServicesPageViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesPageViewControler.swift; sourceTree = "<group>"; };
+		9A66B7082B1FC392003430D1 /* ServicesPagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesPagePresenter.swift; sourceTree = "<group>"; };
 		9A6A8CBF2AFAC95900A2361E /* RatePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatePresenter.swift; sourceTree = "<group>"; };
 		9A6A8CC22AFAC95900A2361E /* RateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateViewController.swift; sourceTree = "<group>"; };
 		9A6A8CC32AFAC95900A2361E /* Rate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Rate.storyboard; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 		9A10D7D92AB5F1EB002D1571 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				9A66B7042B1FC36D003430D1 /* ServicesPageModule */,
 				9A10D7DA2AB5F22E002D1571 /* HomeModule */,
 				9A6A8CBD2AFAC95900A2361E /* RateModule */,
 				9A6A8CC72AFAC9B700A2361E /* ShareModule */,
@@ -297,6 +302,39 @@
 				9A46AEFD2AC4320C00977980 /* MediaTableViewCell.swift */,
 			);
 			path = MediaCell;
+			sourceTree = "<group>";
+		};
+		9A66B7042B1FC36D003430D1 /* ServicesPageModule */ = {
+			isa = PBXGroup;
+			children = (
+				9A66B7072B1FC381003430D1 /* Model */,
+				9A66B7062B1FC37D003430D1 /* Views */,
+				9A66B7052B1FC379003430D1 /* Presenter */,
+			);
+			path = ServicesPageModule;
+			sourceTree = "<group>";
+		};
+		9A66B7052B1FC379003430D1 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9A66B7082B1FC392003430D1 /* ServicesPagePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		9A66B7062B1FC37D003430D1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9A66B7022B1FAC83003430D1 /* ServicesPageViewControler.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9A66B7072B1FC381003430D1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		9A6A8CBD2AFAC95900A2361E /* RateModule */ = {
@@ -649,6 +687,7 @@
 				B035CC002B1F7E7800352E24 /* NotesDatabase.swift in Sources */,
 				9A6A8CC52AFAC95900A2361E /* RateViewController.swift in Sources */,
 				9AE27DF62AFFFBD1002BE0AC /* StatisticsViewController.swift in Sources */,
+				9A66B7032B1FAC83003430D1 /* ServicesPageViewControler.swift in Sources */,
 				9A2D14E12AB5EDAB00E7DE95 /* AppDelegate.swift in Sources */,
 				9A6A8CDF2AFACA4B00A2361E /* SettingsTableViewCell.swift in Sources */,
 				9A46AF012AC4320C00977980 /* MediaTableViewCell.swift in Sources */,
@@ -657,6 +696,7 @@
 				9A10D7DF2AB5F341002D1571 /* HomePresenter.swift in Sources */,
 				9A225B7D2B001EBA007FF057 /* ServicesCollectionViewCell.swift in Sources */,
 				9A84F9BA2AB777EE004105B1 /* Strings+Generated.swift in Sources */,
+				9A66B7092B1FC392003430D1 /* ServicesPagePresenter.swift in Sources */,
 				9AE27DF42AFFFBA6002BE0AC /* StatisticsPresenter.swift in Sources */,
 				B035CBFA2B1F4D0400352E24 /* DiaryNote.swift in Sources */,
 				9A6A8CCE2AFAC9B700A2361E /* SharePresenter.swift in Sources */,

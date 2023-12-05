@@ -178,6 +178,9 @@ extension MediaViewController: UITableViewDelegate {
         case .servicesList:
             let cell = tableView.cellForRow(at: indexPath) as! ServicesTableViewCell
             cell.performSelectionAnimation()
+            
+            let serviceUrlString = self.presenter.getServicesListItem(at: indexPath.item).link
+            presenter.routeToServicesPage(webViewUrl: serviceUrlString)
         case .mediaList:
             let cell = tableView.cellForRow(at: indexPath) as! MediaTableViewCell
             cell.performSelectionAnimation()

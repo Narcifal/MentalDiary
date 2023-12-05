@@ -17,6 +17,7 @@ protocol MediaPresenterProtocol: AnyObject {
     func servicesTabTapped()
     func videoTabTapped()
     func loadYouTubeVideo(for view: YouTubePlayerView, with url: String)
+    func routeToServicesPage(webViewUrl: String) 
 }
 
 final class MediaPresenter: MediaPresenterProtocol {
@@ -70,7 +71,13 @@ final class MediaPresenter: MediaPresenterProtocol {
             return
         }
         
-        view.loadVideoURL(url)
+        DispatchQueue.main.async {
+            view.loadVideoURL(url)
+        }
+    }
+    
+    func routeToServicesPage(webViewUrl: String) {
+        router.routeToServicesPageScreen(webViewUrl: webViewUrl)
     }
 }
 

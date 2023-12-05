@@ -43,6 +43,7 @@ final class RateViewController: UIViewController {
         
         navigationItem.leftBarButtonItem = backButton
         progressBar.progress = Constant.progress
+        view.backgroundColor = .white
         
         presenter.viewDidLoad()
         setupRateImageView()
