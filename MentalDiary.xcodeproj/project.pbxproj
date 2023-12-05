@@ -14,7 +14,7 @@
 		9A225B762B000519007FF057 /* ServicesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A225B752B000519007FF057 /* ServicesTableViewCell.swift */; };
 		9A225B782B000825007FF057 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A225B772B000825007FF057 /* UITableViewCell+Extension.swift */; };
 		9A225B7A2B001C17007FF057 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A225B792B001C17007FF057 /* Date+Extension.swift */; };
-		9A225B7D2B001EBA007FF057 /* ArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A225B7C2B001EBA007FF057 /* ArticleCollectionViewCell.swift */; };
+		9A225B7D2B001EBA007FF057 /* ServicesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A225B7C2B001EBA007FF057 /* ServicesCollectionViewCell.swift */; };
 		9A2D14E12AB5EDAB00E7DE95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D14E02AB5EDAB00E7DE95 /* AppDelegate.swift */; };
 		9A2D14E32AB5EDAB00E7DE95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D14E22AB5EDAB00E7DE95 /* SceneDelegate.swift */; };
 		9A2D14E52AB5EDAB00E7DE95 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D14E42AB5EDAB00E7DE95 /* HomeViewController.swift */; };
@@ -62,7 +62,7 @@
 		9A225B752B000519007FF057 /* ServicesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesTableViewCell.swift; sourceTree = "<group>"; };
 		9A225B772B000825007FF057 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		9A225B792B001C17007FF057 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
-		9A225B7C2B001EBA007FF057 /* ArticleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCollectionViewCell.swift; sourceTree = "<group>"; };
+		9A225B7C2B001EBA007FF057 /* ServicesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesCollectionViewCell.swift; sourceTree = "<group>"; };
 		9A2D14DD2AB5EDAB00E7DE95 /* MentalDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MentalDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A2D14E02AB5EDAB00E7DE95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A2D14E22AB5EDAB00E7DE95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -161,7 +161,7 @@
 			children = (
 				9A2D14E42AB5EDAB00E7DE95 /* HomeViewController.swift */,
 				9A2D14E62AB5EDAB00E7DE95 /* Home.storyboard */,
-				9A225B7B2B001EA7007FF057 /* ArticleCell */,
+				9A225B7B2B001EA7007FF057 /* ServicesCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -211,12 +211,12 @@
 			path = ServicesCell;
 			sourceTree = "<group>";
 		};
-		9A225B7B2B001EA7007FF057 /* ArticleCell */ = {
+		9A225B7B2B001EA7007FF057 /* ServicesCell */ = {
 			isa = PBXGroup;
 			children = (
-				9A225B7C2B001EBA007FF057 /* ArticleCollectionViewCell.swift */,
+				9A225B7C2B001EBA007FF057 /* ServicesCollectionViewCell.swift */,
 			);
-			path = ArticleCell;
+			path = ServicesCell;
 			sourceTree = "<group>";
 		};
 		9A2D14D42AB5EDAB00E7DE95 = {
@@ -637,7 +637,7 @@
 				9A225B762B000519007FF057 /* ServicesTableViewCell.swift in Sources */,
 				9A0F6BBB2AB862A000CBB409 /* Assembly.swift in Sources */,
 				9A10D7DF2AB5F341002D1571 /* HomePresenter.swift in Sources */,
-				9A225B7D2B001EBA007FF057 /* ArticleCollectionViewCell.swift in Sources */,
+				9A225B7D2B001EBA007FF057 /* ServicesCollectionViewCell.swift in Sources */,
 				9A84F9BA2AB777EE004105B1 /* Strings+Generated.swift in Sources */,
 				9AE27DF42AFFFBA6002BE0AC /* StatisticsPresenter.swift in Sources */,
 				B035CBFA2B1F4D0400352E24 /* DiaryNote.swift in Sources */,

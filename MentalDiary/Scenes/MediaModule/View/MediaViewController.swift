@@ -16,9 +16,6 @@ final class MediaViewController: UIViewController {
     private enum Constant {
         static let viewCornerRadius: CGFloat = 15
         static let sizeTitleLabel: CGFloat = 18
-        
-        static let mediaCellHeight: CGFloat = 140
-        static let servicesCellHeight = UITableView.automaticDimension
     }
     
     // MARK: - Properties -
@@ -33,6 +30,7 @@ final class MediaViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .white
         setupTableView()
         setupButtons()
     }
@@ -43,7 +41,7 @@ final class MediaViewController: UIViewController {
         changeActivityButtonColor(with: sender)
     }
     
-    @IBAction func didTapservicesCatalog(_ sender: UIButton) {
+    @IBAction func didTapServicesCatalog(_ sender: UIButton) {
         presenter.servicesTabTapped()
         changeActivityButtonColor(with: sender)
     }
@@ -54,7 +52,6 @@ final class MediaViewController: UIViewController {
 }
 
 private extension MediaViewController {
-    
     func setupButtons() {
         videoCatalogButton.layer.cornerRadius = Constant.viewCornerRadius
         videoCatalogButton.layer.cornerCurve = .continuous
@@ -78,7 +75,7 @@ private extension MediaViewController {
             forCellReuseIdentifier: ServicesTableViewCell.identifier
         )
         
-        tableView.backgroundColor = .clear
+        tableView.backgroundColor = .white
         tableView.indicatorStyle = .black
     }
     
@@ -100,9 +97,9 @@ extension MediaViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch presenter.selectedListType {
         case .servicesList:
-            return presenter.servicesList.count
+            return presenter.getServicesListCount()
         case .mediaList:
-            return presenter.mediaList.count
+            return presenter.getMediaListCount()
         }
     }
     
@@ -115,7 +112,9 @@ extension MediaViewController: UITableViewDataSource {
             ) as! ServicesTableViewCell
             cell.selectionStyle = .none
             
-            cell.configure(image: UIImage(named: "test")!, text: "servicesEE")
+            let service = presenter.getServicesListItem(at: indexPath.row)
+            
+            cell.configure(with: service)
             
             return cell
         case .mediaList:
@@ -125,24 +124,20 @@ extension MediaViewController: UITableViewDataSource {
             ) as! MediaTableViewCell
             cell.selectionStyle = .none
             
-            cell.configure(title: "Hi", description: "askdfnajsklnfjkasnfnasnfsajknkasfnaskdfnajsklnfjkasnfnasnfsajknkasfn", image: UIImage(named: "test")!)
+            let video = presenter.getMediaListItem(at: indexPath.row)
+            
+            cell.configure(with: video)
             
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch presenter.selectedListType {
-        case .servicesList:
-            return Constant.servicesCellHeight
-        case .mediaList:
-            return Constant.mediaCellHeight
-        }
+        UITableView.automaticDimension
     }
 }
 
 extension MediaViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         switch presenter.selectedListType {

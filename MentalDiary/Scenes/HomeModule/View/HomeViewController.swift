@@ -81,6 +81,7 @@ private extension HomeViewController {
         )
         collectionView.layer.cornerRadius = Constant.cornerRadiusServicesView
         collectionView.layer.cornerCurve = .continuous
+        collectionView.backgroundColor = .white
     }
     
     func setupPageControl() {
@@ -105,7 +106,7 @@ extension HomeViewController: UICollectionViewDataSource {
         
         let service = presenter.getServicesListItem(at: indexPath.item)
         
-        cell.configure(image: service.image, text: service.title)
+        cell.configure(with: service)
         
         return cell
     }
@@ -146,5 +147,12 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
             bottom: 0,
             right: inset
         )
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let service = presenter.getServicesListItem(at: indexPath.item)
+        print(service.link)
     }
 }

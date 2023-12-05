@@ -11,7 +11,7 @@ protocol HomePresenterProtocol {
     func routeToRateScreen()
     func routeToProfileScreen()
     func getServicesListCount() -> Int
-    func getServicesListItem(at index: Int) -> Service
+    func getServicesListItem(at index: Int) -> RecommendedService
 }
 
 final class HomePresenter: HomePresenterProtocol {
@@ -19,7 +19,7 @@ final class HomePresenter: HomePresenterProtocol {
     //MARK: - Properties -
     private weak var view: HomeViewProtocol?
     private let router: RouterProtocol
-    private let servicesList: [Service] = MockFactory.services
+    private let servicesList: [RecommendedService] = MockFactory.topThreeServices
     
     // MARK: - Life Cycle -
     required init(router: RouterProtocol) {
@@ -43,7 +43,7 @@ final class HomePresenter: HomePresenterProtocol {
         servicesList.count
     }
     
-    func getServicesListItem(at index: Int) -> Service {
+    func getServicesListItem(at index: Int) -> RecommendedService {
         servicesList[index]
     }
 }

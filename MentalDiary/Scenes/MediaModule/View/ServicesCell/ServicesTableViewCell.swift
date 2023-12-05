@@ -10,7 +10,6 @@ import UIKit
 class ServicesTableViewCell: UITableViewCell {
     private enum Constant {
         static let servicesImageViewHeight: CGFloat = 110
-        static let servicesTitleLabelHeight: CGFloat = 40
         static let borderWidth: CGFloat = 2
         static let cornerRadius: CGFloat = 25
         static let verticalInsetConstraint: CGFloat = 10
@@ -20,66 +19,79 @@ class ServicesTableViewCell: UITableViewCell {
     static let identifier = "ServicesTableViewCell"
     
     // MARK: - UIComponents -
-    private lazy var stackView: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.distribution = .fill
-        stack.alignment = .fill
-        stack.clipsToBounds = true
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(stack)
-        return stack
-    }()
     private lazy var servicesImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleToFill
-        imageView.heightAnchor.constraint(equalToConstant: Constant.servicesImageViewHeight)
-            .isActive = true
+        imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
         return imageView
     }()
     private lazy var servicesTitleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.heightAnchor.constraint(equalToConstant: Constant.servicesTitleLabelHeight)
-            .isActive = true
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .black
+        label.numberOfLines = 0
+        label.font = .systemFont(ofSize: 17, weight: .medium)
         return label
     }()
 
-    // MARK: - LifeCycle -
+    // MARK: - Life Cycle -
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
         setupViews()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
         setupViews()
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        self.backgroundColor = .white
+    }
 
-    // MARK: - Iternal -
-    func configure(image: UIImage, text: String) {
-        servicesImageView.image = image
-        servicesTitleLabel.text = text
+    // MARK: - Internal -
+    
+    func configure(with service: Service) {
+        servicesImageView.image = service.image
+        servicesTitleLabel.text = service.title
     }
 }
 
 private extension ServicesTableViewCell {
     func setupViews() {
-        stackView.addArrangedSubview(servicesImageView)
-        stackView.addArrangedSubview(servicesTitleLabel)
+        contentView.addSubview(servicesImageView)
+        contentView.addSubview(servicesTitleLabel)
         
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: Constant.horizontalInsetConstraint),
-            stackView.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -Constant.horizontalInsetConstraint),
-            stackView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: Constant.verticalInsetConstraint),
-            stackView.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: -Constant.verticalInsetConstraint)
+            contentView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constant.horizontalInsetConstraint),
+            contentView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constant.horizontalInsetConstraint),
+            contentView.topAnchor.constraint(equalTo: self.topAnchor, constant: Constant.verticalInsetConstraint),
+            contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -Constant.verticalInsetConstraint),
+            
+            servicesImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            servicesImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            servicesImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            servicesImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
+            servicesImageView.heightAnchor.constraint(equalToConstant: Constant.servicesImageViewHeight),
+            
+            servicesTitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            servicesTitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            servicesTitleLabel.topAnchor.constraint(equalTo: servicesImageView.bottomAnchor),
+            servicesTitleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            servicesTitleLabel.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.35)
         ])
         
-        stackView.layer.cornerRadius = Constant.cornerRadius
-        stackView.layer.cornerCurve = .continuous
-        stackView.layer.borderWidth = Constant.borderWidth
-        stackView.layer.borderColor = UIColor.lightGray.cgColor
+        contentView.layer.cornerRadius = Constant.cornerRadius
+        contentView.layer.cornerCurve = .continuous
+        contentView.layer.borderWidth = Constant.borderWidth
+        contentView.layer.borderColor = UIColor.lightGray.cgColor
+        contentView.clipsToBounds = true
+        contentView.translatesAutoresizingMaskIntoConstraints = false
     }
 }

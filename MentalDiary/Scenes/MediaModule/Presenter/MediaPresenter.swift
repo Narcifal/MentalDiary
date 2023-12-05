@@ -9,8 +9,10 @@ import Foundation
 
 protocol MediaPresenterProtocol: AnyObject {
     var selectedListType: MediaType { get }
-    var servicesList: [ServicesTableViewCell] { get }
-    var mediaList: [MediaTableViewCell] { get }
+    func getServicesListCount() -> Int
+    func getMediaListCount() -> Int
+    func getServicesListItem(at index: Int) -> Service
+    func getMediaListItem(at index: Int) -> Video
     func servicesTabTapped()
     func videoTabTapped()
 }
@@ -22,20 +24,8 @@ final class MediaPresenter: MediaPresenterProtocol {
     private weak var view: MediaViewProtocol?
     private let router: RouterProtocol
     private(set) var selectedListType: MediaType = .mediaList
-    private(set) var servicesList: [ServicesTableViewCell] = [
-        ServicesTableViewCell(),
-        ServicesTableViewCell(),
-        ServicesTableViewCell(),
-        ServicesTableViewCell(),
-    ]
-    private(set) var mediaList: [MediaTableViewCell] = [
-        MediaTableViewCell(),
-        MediaTableViewCell(),
-        MediaTableViewCell(),
-        MediaTableViewCell(),
-        MediaTableViewCell(),
-        MediaTableViewCell(),
-    ]
+    private let servicesList: [Service] = MockFactory.services
+    private let mediaList: [Video] = MockFactory.videos
     
     // MARK: - Life Cycle -
     required init(router: RouterProtocol) {
@@ -55,6 +45,22 @@ final class MediaPresenter: MediaPresenterProtocol {
     func servicesTabTapped() {
         selectedListType = .servicesList
         view?.reloadTableView()
+    }
+    
+    func getServicesListCount() -> Int {
+        servicesList.count
+    }
+    
+    func getServicesListItem(at index: Int) -> Service {
+        servicesList[index]
+    }
+    
+    func getMediaListCount() -> Int {
+        mediaList.count
+    }
+    
+    func getMediaListItem(at index: Int) -> Video {
+        mediaList[index]
     }
 }
 

@@ -7,7 +7,6 @@
 import UIKit
 
 class ServicesCollectionViewCell: UICollectionViewCell {
-    
     private enum Constant {
         static let imageViewHeight: CGFloat = 0.75
         static let servicesLabelHeight: CGFloat = 0.25
@@ -39,6 +38,8 @@ class ServicesCollectionViewCell: UICollectionViewCell {
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.clipsToBounds = true
+        label.textColor = .black
+        label.font = .systemFont(ofSize: 17, weight: .medium)
         return label
     }()
 
@@ -56,9 +57,9 @@ class ServicesCollectionViewCell: UICollectionViewCell {
     }
     
     // MARK: - Iternal -
-    func configure(image: UIImage, text: String) {
-        servicesImageView.image = image
-        servicesLabel.text = text
+    func configure(with service: RecommendedService) {
+        servicesImageView.image = service.image
+        servicesLabel.text = service.title
     }
 }
 
