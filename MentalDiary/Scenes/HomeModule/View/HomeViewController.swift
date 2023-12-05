@@ -7,63 +7,142 @@
 
 import UIKit
 
-protocol HomeViewProtocol: AnyObject {
-    func updateDate(date: String)
-}
+protocol HomeViewProtocol: AnyObject { }
 
 final class HomeViewController: UIViewController {
+    
+    private enum Constant {
+        static let defaultPageControl = 0
+        static let cornerRadiusArticleView: CGFloat = 15
+        static let cornerRadiusFillDiaryButton: CGFloat = 10
+        static let cornerRadiusDiaryAchievementView: CGFloat = 15
+    }
     
     // MARK: - Properties -
     var presenter: HomePresenterProtocol!
     
     // MARK: - UIComponents -
-    @IBOutlet weak var articleView: UIView!
-    @IBOutlet weak var profileDateLabel: UILabel!
-    @IBOutlet weak var profileNameLabel: UILabel!
-    @IBOutlet weak var profileButton: UIButton!
-    @IBOutlet weak var fillDiaryButton: UIButton!
-    @IBOutlet weak var articleLabel: UILabel!
-    @IBOutlet weak var articleImageView: UIImageView!
-    @IBOutlet weak var diaryAchievementView: UIView!
-    @IBOutlet weak var articlePageControl: UIPageControl!
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var profileDateLabel: UILabel!
+    @IBOutlet private weak var profileNameLabel: UILabel!
+    @IBOutlet private weak var profileButton: UIButton!
+    @IBOutlet private weak var fillDiaryButton: UIButton!
+    @IBOutlet private weak var diaryAchievementView: UIView!
+    @IBOutlet private weak var pageControl: UIPageControl!
     
     // MARK: - Life Cycle -
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.viewDidLoad()
-        setup()
+        
+        setupView()
+        setupCollectionView()
+        setupPageControl()
     }
     
-    // MARK: - Internal -
-    func setup() {
+    // MARK: - Iternal -
+    @IBAction func fillDairyTapped(_ sender: Any) {
+        presenter.routeToRateScreen()
+    }
+    
+    @IBAction func profileButtonTapped(_ sender: UIButton) {
+        presenter.routeToProfileScreen()
+    }
+}
+
+extension HomeViewController: HomeViewProtocol { }
+
+private extension HomeViewController {
+    
+    func setupView() {
         view.backgroundColor = .white
         
-        articleView.layer.cornerRadius = 15
-        articleView.layer.cornerCurve = .continuous
-        fillDiaryButton.layer.cornerRadius = 10
+        fillDiaryButton.layer.cornerRadius = Constant.cornerRadiusFillDiaryButton
         fillDiaryButton.layer.cornerCurve = .continuous
-        profileButton.layer.cornerRadius = 30
-        profileButton.layer.cornerCurve = .continuous
-        diaryAchievementView.layer.cornerRadius = 15
-        diaryAchievementView.layer.cornerCurve = .continuous
         
-        articleImageView.contentMode = .scaleToFill
-        articleImageView.image = Asset.test.image
+        let cornerRadiusProfileButton = profileButton.frame.size.width/2
+        profileButton.layer.cornerRadius = cornerRadiusProfileButton
+        profileButton.layer.cornerCurve = .continuous
+        
+        diaryAchievementView.layer.cornerRadius = Constant.cornerRadiusDiaryAchievementView
+        diaryAchievementView.layer.cornerCurve = .continuous
     }
-
     
-}
-
-// MARK: - HomeViewProtocol -
-extension HomeViewController: HomeViewProtocol {
-    func updateDate(date: String) {
-        profileDateLabel.text = date
+    func setupCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 0
+        collectionView.setCollectionViewLayout(layout, animated: false)
+        collectionView.isPagingEnabled = true
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(
+            ArticleCollectionViewCell.self,
+            forCellWithReuseIdentifier: ArticleCollectionViewCell.identifier
+        )
+        collectionView.layer.cornerRadius = Constant.cornerRadiusArticleView
+        collectionView.layer.cornerCurve = .continuous
+    }
+    
+    func setupPageControl() {
+        pageControl.numberOfPages = presenter.articlesList.count
+        pageControl.currentPage = Constant.defaultPageControl
+        pageControl.pageIndicatorTintColor = UIColor.lightGray
+        pageControl.currentPageIndicatorTintColor = UIColor.black
     }
 }
 
-// MARK: - Private -
-private extension HomeViewController {
-    @IBAction func fillDairyTapped(_ sender: Any) {
-        presenter.routeToReport()
+extension HomeViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return presenter.articlesList.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: ArticleCollectionViewCell.identifier,
+            for: indexPath
+        ) as! ArticleCollectionViewCell
+        
+        cell.configure(image: UIImage(named: "test")!, text: "This is my test")
+        
+        return cell
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let currentPage = scrollView.contentOffset.x / scrollView.frame.width
+        pageControl.currentPage = Int(currentPage)
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        let width = collectionView.bounds.width - 20
+        return CGSize(width: width, height: collectionView.bounds.height)
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        minimumLineSpacingForSectionAt section: Int
+    ) -> CGFloat {
+        return 20
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        insetForSectionAt section: Int
+    ) -> UIEdgeInsets {
+        let inset: CGFloat = 20 / 2
+        return UIEdgeInsets(
+            top: 0,
+            left: inset,
+            bottom: 0,
+            right: inset
+        )
     }
 }

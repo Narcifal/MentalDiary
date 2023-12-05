@@ -11,19 +11,18 @@ protocol ProfileViewProtocol: AnyObject {}
 
 final class ProfileViewController: UIViewController {
     
-    static func instantiate(with presenter: ProfilePresenterProtocol) -> ProfileViewController {
-        let viewController: ProfileViewController = .instantiate(storyboard: .profile)
-        viewController.presenter = presenter
-        return viewController
+    private enum Constant {
+        static let numberOfComponents = 1
+        static let cornerRadiusTableView: CGFloat = 5
     }
     
     // MARK: - Properties -
     var presenter: ProfilePresenterProtocol!
-    private var isStarterScreen = false
-    private let genderList = ["M", "W"]
-    private let settingsList = ["Contact Support", "Terms & Condition", "Log out"]
+    private var isStarterScreen = true
     
     // MARK: - UIComponents -
+    @IBOutlet private weak var profileEditButton: UIButton!
+    @IBOutlet private weak var backButton: UIButton!
     @IBOutlet private weak var datePicker: UIDatePicker!
     @IBOutlet private weak var genderPickerView: UIPickerView!
     @IBOutlet private weak var settingsTableView: UITableView!
@@ -36,63 +35,100 @@ final class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        backButton.setTitle("", for: .normal)
         hideNeededView()
+        
         setupProfileImageView()
         setupSettingsTableView()
         setupGenderPicker()
     }
-}
-
-private extension ProfileViewController {
     
-    private func setupGenderPicker() {
-        genderPickerView.delegate = self
-        genderPickerView.dataSource = self
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        presenter.backButtonTapped()
     }
     
-    private func setupProfileImageView() {
-        let cornerRadius = profileImageView.frame.size.width/2
-        profileImageView.layer.cornerRadius = cornerRadius
-        profileImageView.layer.cornerCurve = .continuous
-        profileImageView.clipsToBounds = true
+    @IBAction func profileEditButtonTapped(_ sender: UIButton) {
+        let pureGreen = UIColor(named: Asset.pureGreen.name)
+        profileEditButton.tintColor = (profileEditButton.tintColor == pureGreen) ? .black : pureGreen
         
-        profileImageView.image = UIImage(named: "angry")
-    }
-    
-    private func setupSettingsTableView() {
-        let cornerRadius: CGFloat = 5
-        settingsTableView.layer.cornerRadius = cornerRadius
-        settingsTableView.layer.cornerCurve = .continuous
-        
-        settingsTableView.delegate = self
-        settingsTableView.dataSource = self
-        
-        settingsTableView.register(SettingsTableViewCell.nib(), forCellReuseIdentifier: SettingsTableViewCell.identifier)
-    }
-    
-    private func hideNeededView() {
-        if isStarterScreen {
-            profileSettingsView.isHidden = true
-        } else {
-            profileSettingsView.isHidden = false
-            nameLabel.isHidden = true
-            mailLabel.isHidden = true
-            settingsTableView.isHidden = true
-        }
+        hideNeededView()
+        presenter.profileEditTapped(sender: sender)
     }
 }
 
 extension ProfileViewController: ProfileViewProtocol {}
 
+private extension ProfileViewController {
+    
+    func setupGenderPicker() {
+        genderPickerView.delegate = self
+        genderPickerView.dataSource = self
+    }
+    
+    func setupProfileImageView() {
+        let cornerRadius = profileImageView.frame.size.width / 2
+        
+        profileImageView.layer.cornerRadius = cornerRadius
+        profileImageView.layer.cornerCurve = .continuous
+        profileImageView.clipsToBounds = true
+        profileImageView.isUserInteractionEnabled = true
+        
+        let tapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(openImagePicker)
+        )
+        profileImageView.addGestureRecognizer(tapGesture)
+    }
+    
+    func setupSettingsTableView() {
+        settingsTableView.layer.cornerRadius = Constant.cornerRadiusTableView
+        settingsTableView.layer.cornerCurve = .continuous
+        
+        settingsTableView.delegate = self
+        settingsTableView.dataSource = self
+        
+        settingsTableView.register(
+            SettingsTableViewCell.nib(),
+            forCellReuseIdentifier: SettingsTableViewCell.identifier
+        )
+    }
+    
+    @objc func openImagePicker() {
+        let picker = UIImagePickerController()
+        picker.allowsEditing = true
+        picker.delegate = self
+        present(picker, animated: true)
+    }
+    
+    func hideNeededView() {
+        isStarterScreen.toggle()
+        
+        profileSettingsView.isHidden = !isStarterScreen
+        settingsTableView.isHidden = isStarterScreen
+        nameLabel.isHidden = isStarterScreen
+        mailLabel.isHidden = isStarterScreen
+    }
+    
+    func updateImageView(image: UIImage) {
+        profileImageView.image = image
+    }
+}
+
+// MARK: - TableView -
 extension ProfileViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return settingsList.count
+        return presenter.settingsList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.identifier, for: indexPath) as! SettingsTableViewCell
-        cell.configure(settingsList[indexPath.row])
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: SettingsTableViewCell.identifier,
+            for: indexPath
+        ) as! SettingsTableViewCell
+        
+        cell.configure(presenter.settingsList[indexPath.row])
+        
         return cell
     }
     
@@ -107,20 +143,39 @@ extension ProfileViewController: UITableViewDelegate {
     }
 }
 
+// MARK: - PickerView -
 extension ProfileViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+        return Constant.numberOfComponents
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return genderList.count
+        return presenter.genderList.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return genderList[row]
+        return presenter.genderList[row]
     }
 }
 
-extension ProfileViewController: UIPickerViewDelegate {
+extension ProfileViewController: UIPickerViewDelegate { }
 
+extension ProfileViewController:
+    UIImagePickerControllerDelegate,
+    UINavigationControllerDelegate {
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
+    }
+    
+    func imagePickerController(
+        _ picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]
+    ) {
+        if let originalImage = info[.editedImage] as? UIImage {
+            updateImageView(image: originalImage)
+        }
+        
+        picker.dismiss(animated: true)
+    }
 }

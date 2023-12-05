@@ -7,53 +7,71 @@
 
 import UIKit
 
-protocol ShareViewProtocol: AnyObject {}
+protocol ShareViewProtocol: AnyObject { }
 
 final class ShareViewController: UIViewController {
     
-    private struct Constants {
-        static let situationPlaceholder = "Describe it..."
-        static let thoughtsPlaceholder = "What is on you mind..."
-        static let feelingsPlaceholder = "What is on you heart..."
-        static let defaultPlaceholder = "Share with me..."
-    }
-    
-    static func instantiate(with presenter: SharePresenterProtocol) -> ShareViewController {
-        let viewController: ShareViewController = .instantiate(storyboard: .share)
-        viewController.presenter = presenter
-        return viewController
+    private enum Constant {
+        static let progress: Float = 1
+        static let backButtonImage = "chevron.left"
+        static let cornerRadiusTextView: CGFloat = 25
+        static let cornerRadiusButton: CGFloat = 25
+        static let verticalInsetTextView: CGFloat = 25
+        static let horizontalInsetTextView: CGFloat = 10
+        
+        enum Placeholder {
+            static let titleSituation = "Describe it..."
+            static let titleThoughts = "What is on you mind..."
+            static let titleFeelings = "What is on you heart..."
+            static let titleDefault = "Share with me..."
+        }
     }
     
     // MARK: - Properties -
     var presenter: SharePresenterProtocol!
     
     // MARK: - UIComponents -
-    @IBOutlet weak var situationTextView: UITextView!
-    @IBOutlet weak var thoughtsTextView: UITextView!
-    @IBOutlet weak var feelingsTextView: UITextView!
-    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet private weak var situationTextView: UITextView!
+    @IBOutlet private weak var thoughtsTextView: UITextView!
+    @IBOutlet private weak var feelingsTextView: UITextView!
+    @IBOutlet private weak var shareButton: UIButton!
+    private lazy var backButton: UIBarButtonItem = {
+        let button = UIBarButtonItem()
+        button.image = UIImage(systemName: Constant.backButtonImage)
+        button.target = self
+        button.action = #selector(backButtonTapped)
+        return button
+    }()
     
     // MARK: - LifeCycle -
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.leftBarButtonItem = backButton
+        progressBar.progress = Constant.progress
         
         setupTextView(view: situationTextView)
         setupTextView(view: thoughtsTextView)
         setupTextView(view: feelingsTextView)
         setupShareButton()
     }
+    
+    @objc func backButtonTapped() {
+        presenter.backButtonTapped()
+    }
 }
 
 private extension ShareViewController {
     
     private func setupTextView(view: UITextView) {
-        let cornerRadius: CGFloat = 25
         view.textColor = UIColor.lightGray
-        view.layer.cornerRadius = cornerRadius
+        view.layer.cornerRadius = Constant.cornerRadiusTextView
         view.layer.cornerCurve = .continuous
 
-        let verticalInset: CGFloat = 20
-        let horizontalInset: CGFloat = 20
+        let verticalInset: CGFloat = Constant.verticalInsetTextView
+        let horizontalInset: CGFloat = Constant.horizontalInsetTextView
+        
         view.textContainerInset = UIEdgeInsets(
             top: verticalInset,
             left: horizontalInset,
@@ -64,8 +82,7 @@ private extension ShareViewController {
     }
     
     private func setupShareButton() {
-        let cornerRadius: CGFloat = 10
-        shareButton.layer.cornerRadius = cornerRadius
+        shareButton.layer.cornerRadius = Constant.cornerRadiusButton
         shareButton.layer.cornerCurve = .continuous
     }
     
@@ -89,13 +106,13 @@ extension ShareViewController: UITextViewDelegate {
         if textView.text.isEmpty {
             switch textView {
             case situationTextView:
-                textView.text = Constants.situationPlaceholder
+                textView.text = Constant.Placeholder.titleSituation
             case thoughtsTextView:
-                textView.text = Constants.thoughtsPlaceholder
+                textView.text = Constant.Placeholder.titleThoughts
             case feelingsTextView:
-                textView.text = Constants.feelingsPlaceholder
+                textView.text = Constant.Placeholder.titleFeelings
             default:
-                textView.text = Constants.defaultPlaceholder
+                textView.text = Constant.Placeholder.titleDefault
             }
             
             textView.textColor = UIColor.lightGray

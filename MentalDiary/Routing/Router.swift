@@ -10,6 +10,10 @@ import UIKit
 protocol RouterProtocol {
     func setupTabBarController()
     func routeToRateScreen()
+    func routeToShareScreen(navigationController: UINavigationController)
+    func routeToProfileScreen()
+    func backToTabBarTapped()
+    func back(navigationController: UINavigationController)
 }
 
 final class Router: RouterProtocol {
@@ -25,7 +29,7 @@ final class Router: RouterProtocol {
     func setupTabBarController() {
         let homeViewController = assembly.createHomeViewController(router: self)
         let mediaViewController = assembly.createMediaViewController(router: self)
-        let statisticViewController = assembly.createStatisticViewController(router: self)
+        let statisticViewController = assembly.createStatisticsViewController(router: self)
 
         let viewControllers = [
             statisticViewController,
@@ -40,17 +44,46 @@ final class Router: RouterProtocol {
               tabBarController?.selectedIndex = homeViewControllerIndex
         } 
     }
+}
+
+extension Router {
     
     func routeToRateScreen() {
-    
+        let navigationController = UINavigationController()
+        navigationController.modalPresentationStyle = .fullScreen
+        navigationController.navigationBar.tintColor = .black
+        
+        let rateModule = assembly.createRateViewController(
+            router: self,
+            navigationController: navigationController
+        )
+
+        navigationController.setViewControllers([rateModule], animated: true)
+        tabBarController?.present(navigationController, animated: true, completion: nil)
     }
     
-    @objc 
-    func backButtonTapped() {
+    func routeToShareScreen(navigationController: UINavigationController) {
+        let shareModule = assembly.createShareViewController(
+            router: self,
+            navigationController: navigationController
+        )
+        
+        navigationController.pushViewController(shareModule, animated: false)
+    }
+    
+    func routeToProfileScreen() {
+        let profileModule = assembly.createProfileViewController(router: self)
+        profileModule.modalPresentationStyle = .fullScreen
+        
+        tabBarController?.present(profileModule, animated: true, completion: nil)
+
+    }
+    
+    func backToTabBarTapped() {
         tabBarController?.dismiss(animated: true, completion: nil)
     }
     
-    func popViewController() {
-        tabBarController?.dismiss(animated: true, completion: nil)
+    func back(navigationController: UINavigationController) {
+        navigationController.popViewController(animated: true)
     }
 }

@@ -44,6 +44,11 @@ internal enum Storyboard {
 
     internal static let shareViewController = SceneType<MentalDiary.ShareViewController>(storyboard: Self.self, identifier: "ShareViewController")
   }
+  internal enum Statistics: StoryboardType {
+    internal static let storyboardName = "Statistics"
+
+    internal static let statisticsViewController = SceneType<MentalDiary.StatisticsViewController>(storyboard: Self.self, identifier: "StatisticsViewController")
+  }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name
 

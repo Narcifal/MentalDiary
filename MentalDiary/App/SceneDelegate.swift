@@ -14,6 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
+        
         startRootScreen(for: windowScene)
     }
     
@@ -24,6 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tabBarController = UITabBarController()
         let assembly = Assembly()
         let router = Router(tabBarController: tabBarController, assembly: assembly)
+        
         router.setupTabBarController()
 
         window?.rootViewController = tabBarController
