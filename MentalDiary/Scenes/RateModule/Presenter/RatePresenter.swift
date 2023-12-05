@@ -32,6 +32,7 @@ final class RatePresenter: RatePresenterProtocol {
         Asset.happyEmotion.image,
         Asset.surpriseEmotion.image
     ]
+    private var mentalHealthRate: Int = Constant.startEmotionIndex
     
     // MARK: - Life Cycle -
     required init(router: RouterProtocol, navigationController: UINavigationController) {
@@ -50,12 +51,13 @@ final class RatePresenter: RatePresenterProtocol {
     }
     
     func sliderValueDidUpdate(by index: Int) {
+        mentalHealthRate = index
         let emotionState = Emotion.state(index: index).getState
         view?.updateEmotion(emotion: emotionState)
     }
     
     func nextStepTapped() {
-        router.routeToShareScreen(navigationController: navigationController)
+        router.routeToShareScreen(navigationController: navigationController, mentalHealthRate: mentalHealthRate)
     }
     
     func backButtonTapped() {
