@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import YouTubePlayer
 
 protocol MediaPresenterProtocol: AnyObject {
     var selectedListType: MediaType { get }
@@ -15,6 +16,7 @@ protocol MediaPresenterProtocol: AnyObject {
     func getMediaListItem(at index: Int) -> Video
     func servicesTabTapped()
     func videoTabTapped()
+    func loadYouTubeVideo(for view: YouTubePlayerView, with url: String)
 }
 
 final class MediaPresenter: MediaPresenterProtocol {
@@ -61,6 +63,14 @@ final class MediaPresenter: MediaPresenterProtocol {
     
     func getMediaListItem(at index: Int) -> Video {
         mediaList[index]
+    }
+    
+    func loadYouTubeVideo(for view: YouTubePlayerView, with urlString: String) {
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        
+        view.loadVideoURL(url)
     }
 }
 

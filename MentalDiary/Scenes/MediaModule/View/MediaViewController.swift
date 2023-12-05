@@ -27,7 +27,7 @@ final class MediaViewController: UIViewController {
     @IBOutlet private weak var videoCatalogButton: UIButton!
     @IBOutlet private weak var servicesCatalogButton: UIButton!
     
-    private lazy var overlayView: UIView = {
+    private lazy var mediaViewOverlay: UIView = {
         let view = UIView(frame: UIScreen.main.bounds)
         view.backgroundColor = UIColor.black.withAlphaComponent(0.7)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissOverlay))
@@ -42,11 +42,12 @@ final class MediaViewController: UIViewController {
             height: view.frame.height * 0.33
         )
         let view = YouTubePlayerView(frame: playerFrame)
-        view.center = overlayView.center
+        view.center = mediaViewOverlay.center
         return view
     }()
 
     // MARK: - Life Cycle -
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,7 +56,8 @@ final class MediaViewController: UIViewController {
         setupButtons()
     }
     
-    // MARK: - Iternal -
+    // MARK: - Internal -
+    
     @IBAction func didTapVideoCatalog(_ sender: UIButton) {
         presenter.videoTabTapped()
         changeActivityButtonColor(with: sender)
@@ -111,13 +113,10 @@ private extension MediaViewController {
     }
     
     func showVideoOverlay(with urlString: String) {
-        guard let url = URL(string: urlString) else {
-            return
-        }
-        overlayView.addSubview(youtubePlayerView)
-        view.addSubview(overlayView)
+        mediaViewOverlay.addSubview(youtubePlayerView)
+        view.addSubview(mediaViewOverlay)
 
-        youtubePlayerView.loadVideoURL(url)
+        presenter.loadYouTubeVideo(for: youtubePlayerView, with: urlString)
     }
 
     @objc func dismissOverlay() {
