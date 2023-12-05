@@ -6,6 +6,6 @@ target 'MentalDiary' do
   use_frameworks!
 
   pod 'SwiftGen'
-  pod 'YouTubePlayerKit'
+  pod "YouTubePlayer"
 
 end

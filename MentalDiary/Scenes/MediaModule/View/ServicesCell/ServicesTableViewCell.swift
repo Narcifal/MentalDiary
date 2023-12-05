@@ -32,7 +32,7 @@ class ServicesTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         label.numberOfLines = 0
-        label.font = .systemFont(ofSize: 17, weight: .medium)
+        label.font = .systemFont(ofSize: 17, weight: .bold)
         return label
     }()
 

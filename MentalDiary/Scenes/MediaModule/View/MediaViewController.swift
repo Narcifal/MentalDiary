@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import YouTubePlayer
 
 protocol MediaViewProtocol: AnyObject {
     func reloadTableView()
@@ -26,6 +27,25 @@ final class MediaViewController: UIViewController {
     @IBOutlet private weak var videoCatalogButton: UIButton!
     @IBOutlet private weak var servicesCatalogButton: UIButton!
     
+    private lazy var overlayView: UIView = {
+        let view = UIView(frame: UIScreen.main.bounds)
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissOverlay))
+        view.addGestureRecognizer(tapGesture)
+        return view
+    }()
+    private lazy var youtubePlayerView: YouTubePlayerView = {
+        let playerFrame = CGRect(
+            x: .zero,
+            y: .zero,
+            width: view.frame.width,
+            height: view.frame.height * 0.33
+        )
+        let view = YouTubePlayerView(frame: playerFrame)
+        view.center = overlayView.center
+        return view
+    }()
+
     // MARK: - Life Cycle -
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,6 +109,20 @@ private extension MediaViewController {
         default: break
         }
     }
+    
+    func showVideoOverlay(with urlString: String) {
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        overlayView.addSubview(youtubePlayerView)
+        view.addSubview(overlayView)
+
+        youtubePlayerView.loadVideoURL(url)
+    }
+
+    @objc func dismissOverlay() {
+        view.subviews.last?.removeFromSuperview()
+    }
 }
 
 extension MediaViewController: MediaViewProtocol {}
@@ -140,6 +174,7 @@ extension MediaViewController: UITableViewDataSource {
 extension MediaViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        
         switch presenter.selectedListType {
         case .servicesList:
             let cell = tableView.cellForRow(at: indexPath) as! ServicesTableViewCell
@@ -147,6 +182,9 @@ extension MediaViewController: UITableViewDelegate {
         case .mediaList:
             let cell = tableView.cellForRow(at: indexPath) as! MediaTableViewCell
             cell.performSelectionAnimation()
+            
+            let videoUrlString = self.presenter.getMediaListItem(at: indexPath.item).link
+            showVideoOverlay(with: videoUrlString)
         }
     }
 }

@@ -28,7 +28,7 @@ final class MediaTableViewCell: UITableViewCell {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .fill
-        stackView.distribution = .fillProportionally
+        stackView.distribution = .fill
         stackView.spacing = 0
         stackView.clipsToBounds = true
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -37,7 +37,7 @@ final class MediaTableViewCell: UITableViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         label.numberOfLines = 0
         label.clipsToBounds = true
         label.translatesAutoresizingMaskIntoConstraints = false

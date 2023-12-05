@@ -509,6 +509,7 @@
 				9A2D14D92AB5EDAB00E7DE95 /* Sources */,
 				9A2D14DA2AB5EDAB00E7DE95 /* Frameworks */,
 				9A2D14DB2AB5EDAB00E7DE95 /* Resources */,
+				8B9E5F66455B681DB2EA64D2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -594,6 +595,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8B9E5F66455B681DB2EA64D2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MentalDiary/Pods-MentalDiary-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MentalDiary/Pods-MentalDiary-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MentalDiary/Pods-MentalDiary-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C7A043602AFC5AE00052EFB8 /* SwiftGen */ = {
@@ -806,6 +824,8 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MentalDiary/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "need camera access for recording";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "need microphone access to record sounds";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -836,6 +856,8 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MentalDiary/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "need camera access for recording";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "need microphone access to record sounds";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
