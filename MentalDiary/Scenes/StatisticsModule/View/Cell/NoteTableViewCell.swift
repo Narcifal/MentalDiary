@@ -19,6 +19,20 @@ final class NoteTableViewCell: UITableViewCell {
         return label
     }()
     
+    private let moodLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Mood:"
+        return label
+    }()
+    
+    private let moodTextLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        return label
+    }()
+    
     private let situationLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -74,6 +88,7 @@ final class NoteTableViewCell: UITableViewCell {
     
     func render(with note: NoteModel) {
         dateLabel.text = note.date.formatted()
+        moodTextLabel.text = Emotion.state(index: note.mentalHealthRate).getState.title
         situationTextLabel.text = note.situation
         thoughtsTextLabel.text = note.thoughts
         feelTextLabel.text = note.feel
@@ -82,8 +97,10 @@ final class NoteTableViewCell: UITableViewCell {
 
 private extension NoteTableViewCell {
     
-    private func setupUI() {
+    func setupUI() {
         contentView.addSubview(dateLabel)
+        contentView.addSubview(moodLabel)
+        contentView.addSubview(moodTextLabel)
         contentView.addSubview(situationLabel)
         contentView.addSubview(situationTextLabel)
         contentView.addSubview(thoughtsLabel)
@@ -95,7 +112,14 @@ private extension NoteTableViewCell {
             dateLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             dateLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             
-            situationLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 8),
+            moodLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 8),
+            moodLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            
+            moodTextLabel.topAnchor.constraint(equalTo: moodLabel.bottomAnchor, constant: 4),
+            moodTextLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            moodTextLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            
+            situationLabel.topAnchor.constraint(equalTo: moodTextLabel.bottomAnchor, constant: 8),
             situationLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             
             situationTextLabel.topAnchor.constraint(equalTo: situationLabel.bottomAnchor, constant: 4),
