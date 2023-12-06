@@ -6,35 +6,29 @@
 //
 
 import Foundation
+import YouTubePlayer
 
 protocol MediaPresenterProtocol: AnyObject {
     var selectedListType: MediaType { get }
-    var articlesList: [ArticleTableViewCell] { get }
-    var mediaList: [MediaTableViewCell] { get }
-    func articlesTabTapped()
+    func getServicesListCount() -> Int
+    func getMediaListCount() -> Int
+    func getServicesListItem(at index: Int) -> Service
+    func getMediaListItem(at index: Int) -> Video
+    func servicesTabTapped()
     func videoTabTapped()
+    func loadYouTubeVideo(for view: YouTubePlayerView, with url: String)
+    func routeToServicesPage(webViewUrl: String) 
 }
 
 final class MediaPresenter: MediaPresenterProtocol {
     
     //MARK: - Properties -
+    
     private weak var view: MediaViewProtocol?
     private let router: RouterProtocol
     private(set) var selectedListType: MediaType = .mediaList
-    private(set) var articlesList: [ArticleTableViewCell] = [
-        ArticleTableViewCell(),
-        ArticleTableViewCell(),
-        ArticleTableViewCell(),
-        ArticleTableViewCell(),
-    ]
-    private(set) var mediaList: [MediaTableViewCell] = [
-        MediaTableViewCell(),
-        MediaTableViewCell(),
-        MediaTableViewCell(),
-        MediaTableViewCell(),
-        MediaTableViewCell(),
-        MediaTableViewCell(),
-    ]
+    private let servicesList: [Service] = MockFactory.services
+    private let mediaList: [Video] = MockFactory.videos
     
     // MARK: - Life Cycle -
     required init(router: RouterProtocol) {
@@ -51,13 +45,43 @@ final class MediaPresenter: MediaPresenterProtocol {
         view?.reloadTableView()
     }
     
-    func articlesTabTapped() {
-        selectedListType = .articlesList
+    func servicesTabTapped() {
+        selectedListType = .servicesList
         view?.reloadTableView()
+    }
+    
+    func getServicesListCount() -> Int {
+        servicesList.count
+    }
+    
+    func getServicesListItem(at index: Int) -> Service {
+        servicesList[index]
+    }
+    
+    func getMediaListCount() -> Int {
+        mediaList.count
+    }
+    
+    func getMediaListItem(at index: Int) -> Video {
+        mediaList[index]
+    }
+    
+    func loadYouTubeVideo(for view: YouTubePlayerView, with urlString: String) {
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        
+        DispatchQueue.main.async {
+            view.loadVideoURL(url)
+        }
+    }
+    
+    func routeToServicesPage(webViewUrl: String) {
+        router.routeToServicesPageScreen(webViewUrl: webViewUrl)
     }
 }
 
 enum MediaType {
     case mediaList
-    case articlesList
+    case servicesList
 }

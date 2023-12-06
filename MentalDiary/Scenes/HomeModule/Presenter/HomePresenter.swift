@@ -8,9 +8,11 @@
 import Foundation
 
 protocol HomePresenterProtocol {
-    var articlesList: [ArticleCollectionViewCell] { get }
     func routeToRateScreen()
     func routeToProfileScreen()
+    func getServicesListCount() -> Int
+    func getServicesListItem(at index: Int) -> RecommendedService
+    func routeToServicesPage(webViewUrl: String)
 }
 
 final class HomePresenter: HomePresenterProtocol {
@@ -18,11 +20,7 @@ final class HomePresenter: HomePresenterProtocol {
     //MARK: - Properties -
     private weak var view: HomeViewProtocol?
     private let router: RouterProtocol
-    private(set) var articlesList: [ArticleCollectionViewCell] = [
-        ArticleCollectionViewCell(),
-        ArticleCollectionViewCell(),
-        ArticleCollectionViewCell()
-    ]
+    private let servicesList: [RecommendedService] = MockFactory.topThreeServices
     
     // MARK: - Life Cycle -
     required init(router: RouterProtocol) {
@@ -40,5 +38,17 @@ final class HomePresenter: HomePresenterProtocol {
     
     func routeToProfileScreen() {
         router.routeToProfileScreen()
+    }
+    
+    func getServicesListCount() -> Int {
+        servicesList.count
+    }
+    
+    func getServicesListItem(at index: Int) -> RecommendedService {
+        servicesList[index]
+    }
+    
+    func routeToServicesPage(webViewUrl: String) {
+        router.routeToServicesPageScreen(webViewUrl: webViewUrl)
     }
 }

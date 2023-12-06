@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import YouTubePlayer
 
 protocol MediaViewProtocol: AnyObject {
     func reloadTableView()
@@ -16,9 +17,6 @@ final class MediaViewController: UIViewController {
     private enum Constant {
         static let viewCornerRadius: CGFloat = 15
         static let sizeTitleLabel: CGFloat = 18
-        
-        static let mediaCellHeight: CGFloat = 140
-        static let articleCellHeight = UITableView.automaticDimension
     }
     
     // MARK: - Properties -
@@ -27,24 +25,46 @@ final class MediaViewController: UIViewController {
     // MARK: - UIComponents -
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var videoCatalogButton: UIButton!
-    @IBOutlet private weak var articleCatalogButton: UIButton!
+    @IBOutlet private weak var servicesCatalogButton: UIButton!
     
+    private lazy var mediaViewOverlay: UIView = {
+        let view = UIView(frame: UIScreen.main.bounds)
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissOverlay))
+        view.addGestureRecognizer(tapGesture)
+        return view
+    }()
+    private lazy var youtubePlayerView: YouTubePlayerView = {
+        let playerFrame = CGRect(
+            x: .zero,
+            y: .zero,
+            width: view.frame.width,
+            height: view.frame.height * 0.33
+        )
+        let view = YouTubePlayerView(frame: playerFrame)
+        view.center = mediaViewOverlay.center
+        return view
+    }()
+
     // MARK: - Life Cycle -
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .white
         setupTableView()
         setupButtons()
     }
     
-    // MARK: - Iternal -
+    // MARK: - Internal -
+    
     @IBAction func didTapVideoCatalog(_ sender: UIButton) {
         presenter.videoTabTapped()
         changeActivityButtonColor(with: sender)
     }
     
-    @IBAction func didTapArticleCatalog(_ sender: UIButton) {
-        presenter.articlesTabTapped()
+    @IBAction func didTapServicesCatalog(_ sender: UIButton) {
+        presenter.servicesTabTapped()
         changeActivityButtonColor(with: sender)
     }
     
@@ -54,15 +74,14 @@ final class MediaViewController: UIViewController {
 }
 
 private extension MediaViewController {
-    
     func setupButtons() {
         videoCatalogButton.layer.cornerRadius = Constant.viewCornerRadius
         videoCatalogButton.layer.cornerCurve = .continuous
         videoCatalogButton.titleLabel?.font = .boldSystemFont(ofSize: Constant.sizeTitleLabel)
         
-        articleCatalogButton.layer.cornerRadius = Constant.viewCornerRadius
-        articleCatalogButton.layer.cornerCurve = .continuous
-        articleCatalogButton.titleLabel?.font = .boldSystemFont(ofSize: Constant.sizeTitleLabel)
+        servicesCatalogButton.layer.cornerRadius = Constant.viewCornerRadius
+        servicesCatalogButton.layer.cornerCurve = .continuous
+        servicesCatalogButton.titleLabel?.font = .boldSystemFont(ofSize: Constant.sizeTitleLabel)
     }
     
     func setupTableView() {
@@ -74,11 +93,11 @@ private extension MediaViewController {
             forCellReuseIdentifier: Localized.MediaModule.TableViewCell.identifier
         )
         tableView.register(
-            ArticleTableViewCell.self,
-            forCellReuseIdentifier: ArticleTableViewCell.identifier
+            ServicesTableViewCell.self,
+            forCellReuseIdentifier: ServicesTableViewCell.identifier
         )
         
-        tableView.backgroundColor = .clear
+        tableView.backgroundColor = .white
         tableView.indicatorStyle = .black
     }
     
@@ -86,11 +105,22 @@ private extension MediaViewController {
         button.backgroundColor = UIColor(named: Asset.pureGreen.name)
         switch button {
         case videoCatalogButton:
-            articleCatalogButton.backgroundColor = .lightGray
-        case articleCatalogButton:
+            servicesCatalogButton.backgroundColor = .lightGray
+        case servicesCatalogButton:
             videoCatalogButton.backgroundColor = .lightGray
         default: break
         }
+    }
+    
+    func showVideoOverlay(with urlString: String) {
+        mediaViewOverlay.addSubview(youtubePlayerView)
+        view.addSubview(mediaViewOverlay)
+
+        presenter.loadYouTubeVideo(for: youtubePlayerView, with: urlString)
+    }
+
+    @objc func dismissOverlay() {
+        view.subviews.last?.removeFromSuperview()
     }
 }
 
@@ -99,23 +129,25 @@ extension MediaViewController: MediaViewProtocol {}
 extension MediaViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch presenter.selectedListType {
-        case .articlesList:
-            return presenter.articlesList.count
+        case .servicesList:
+            return presenter.getServicesListCount()
         case .mediaList:
-            return presenter.mediaList.count
+            return presenter.getMediaListCount()
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch presenter.selectedListType {
-        case .articlesList:
+        case .servicesList:
             let cell = tableView.dequeueReusableCell(
-                withIdentifier: ArticleTableViewCell.identifier,
+                withIdentifier: ServicesTableViewCell.identifier,
                 for: indexPath
-            ) as! ArticleTableViewCell
+            ) as! ServicesTableViewCell
             cell.selectionStyle = .none
             
-            cell.configure(image: UIImage(named: "test")!, text: "ARTICLEEE")
+            let service = presenter.getServicesListItem(at: indexPath.row)
+            
+            cell.configure(with: service)
             
             return cell
         case .mediaList:
@@ -125,33 +157,36 @@ extension MediaViewController: UITableViewDataSource {
             ) as! MediaTableViewCell
             cell.selectionStyle = .none
             
-            cell.configure(title: "Hi", description: "askdfnajsklnfjkasnfnasnfsajknkasfnaskdfnajsklnfjkasnfnasnfsajknkasfn", image: UIImage(named: "test")!)
+            let video = presenter.getMediaListItem(at: indexPath.row)
+            
+            cell.configure(with: video)
             
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch presenter.selectedListType {
-        case .articlesList:
-            return Constant.articleCellHeight
-        case .mediaList:
-            return Constant.mediaCellHeight
-        }
+        UITableView.automaticDimension
     }
 }
 
 extension MediaViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        
         switch presenter.selectedListType {
-        case .articlesList:
-            let cell = tableView.cellForRow(at: indexPath) as! ArticleTableViewCell
+        case .servicesList:
+            let cell = tableView.cellForRow(at: indexPath) as! ServicesTableViewCell
             cell.performSelectionAnimation()
+            
+            let serviceUrlString = self.presenter.getServicesListItem(at: indexPath.item).link
+            presenter.routeToServicesPage(webViewUrl: serviceUrlString)
         case .mediaList:
             let cell = tableView.cellForRow(at: indexPath) as! MediaTableViewCell
             cell.performSelectionAnimation()
+            
+            let videoUrlString = self.presenter.getMediaListItem(at: indexPath.item).link
+            showVideoOverlay(with: videoUrlString)
         }
     }
 }

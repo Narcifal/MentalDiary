@@ -17,43 +17,28 @@ final class MediaTableViewCell: UITableViewCell {
     }
     
     // MARK: - UIComponents -
-    private let mainStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.alignment = .fill
-        stackView.distribution = .fillEqually
-        stackView.spacing = 10
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.clipsToBounds = true
-        return stackView
-    }()
     private let mediaImageView: UIImageView = {
         let view = UIImageView()
-        view.contentMode = .scaleToFill
+        view.contentMode = .scaleAspectFill
         view.translatesAutoresizingMaskIntoConstraints = false
         view.clipsToBounds = true
-        return view
-    }()
-    private let rightView: UIView = {
-        let view = UIView()
-        view.clipsToBounds = true
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     private let verticalStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .fill
-        stackView.distribution = .fillProportionally
-        stackView.spacing = 10
+        stackView.distribution = .fill
+        stackView.spacing = 0
         stackView.clipsToBounds = true
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        label.numberOfLines = 1
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        label.numberOfLines = 0
         label.clipsToBounds = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -64,9 +49,12 @@ final class MediaTableViewCell: UITableViewCell {
         label.numberOfLines = 0
         label.clipsToBounds = true
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .black
         return label
     }()
 
+    // MARK: - Life Cycle -
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
@@ -77,66 +65,66 @@ final class MediaTableViewCell: UITableViewCell {
         setupViews()
     }
     
-    func configure(title: String, description: String, image: UIImage) {
-        titleLabel.text = title
-        descriptionLabel.text = description
-        mediaImageView.image = image
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        self.backgroundColor = .white
+    }
+    
+    // MARK: - Internal -
+    
+    func configure(with video: Video) {
+        titleLabel.text = video.title
+        descriptionLabel.text = video.description
+        mediaImageView.image = video.image
     }
 }
 
 private extension MediaTableViewCell {
-    
     func setupViews() {
-        contentView.addSubview(mainStackView)
-        
-        mainStackView.addArrangedSubview(mediaImageView)
-        mainStackView.addArrangedSubview(rightView)
-        
-        rightView.addSubview(verticalStackView)
+        contentView.addSubview(mediaImageView)
+        contentView.addSubview(verticalStackView)
         
         verticalStackView.addArrangedSubview(titleLabel)
         verticalStackView.addArrangedSubview(descriptionLabel)
 
         NSLayoutConstraint.activate([
-            mainStackView.leadingAnchor.constraint(
-                equalTo: contentView.safeAreaLayoutGuide.leadingAnchor,
+            contentView.heightAnchor.constraint(equalToConstant: 140),
+            
+            contentView.leadingAnchor.constraint(
+                equalTo: self.leadingAnchor,
                 constant: Constant.horizontalInsetConstraint
             ),
-            mainStackView.trailingAnchor.constraint(
-                equalTo: contentView.safeAreaLayoutGuide.trailingAnchor,
+            contentView.trailingAnchor.constraint(
+                equalTo: self.trailingAnchor,
                 constant: -Constant.horizontalInsetConstraint
             ),
-            mainStackView.topAnchor.constraint(
-                equalTo: contentView.safeAreaLayoutGuide.topAnchor,
+            contentView.topAnchor.constraint(
+                equalTo: self.topAnchor,
                 constant: Constant.verticalInsetConstraint
             ),
-            mainStackView.bottomAnchor.constraint(
-                equalTo: contentView.safeAreaLayoutGuide.bottomAnchor,
+            contentView.bottomAnchor.constraint(
+                equalTo: self.bottomAnchor,
                 constant: -Constant.verticalInsetConstraint
             ),
             
-            verticalStackView.leadingAnchor.constraint(
-                equalTo: rightView.leadingAnchor,
-                constant: Constant.horizontalInsetConstraint
-            ),
-            verticalStackView.trailingAnchor.constraint(
-                equalTo: rightView.trailingAnchor,
-                constant: -Constant.horizontalInsetConstraint
-            ),
-            verticalStackView.topAnchor.constraint(
-                equalTo: rightView.topAnchor,
-                constant: Constant.verticalInsetConstraint
-            ),
-            verticalStackView.bottomAnchor.constraint(
-                equalTo: rightView.bottomAnchor,
-                constant: -Constant.verticalInsetConstraint
-            )
+            mediaImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            mediaImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            mediaImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            mediaImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5),
+            
+            verticalStackView.leadingAnchor.constraint(equalTo: mediaImageView.trailingAnchor, constant: 10),
+            verticalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constant.horizontalInsetConstraint),
+            verticalStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constant.verticalInsetConstraint),
+            verticalStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constant.verticalInsetConstraint),
         ])
 
-        mainStackView.layer.cornerRadius = Constant.cornerRadius
-        mainStackView.layer.cornerCurve = .continuous
-        mainStackView.layer.borderWidth = Constant.borderWidth
-        mainStackView.layer.borderColor = UIColor.lightGray.cgColor
+        contentView.layer.cornerRadius = Constant.cornerRadius
+        contentView.layer.cornerCurve = .continuous
+        contentView.layer.borderWidth = Constant.borderWidth
+        contentView.layer.borderColor = UIColor.lightGray.cgColor
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.clipsToBounds = true
     }
 }
 

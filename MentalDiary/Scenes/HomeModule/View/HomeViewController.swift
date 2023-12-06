@@ -13,7 +13,7 @@ final class HomeViewController: UIViewController {
     
     private enum Constant {
         static let defaultPageControl = 0
-        static let cornerRadiusArticleView: CGFloat = 15
+        static let cornerRadiusServicesView: CGFloat = 15
         static let cornerRadiusFillDiaryButton: CGFloat = 10
         static let cornerRadiusDiaryAchievementView: CGFloat = 15
     }
@@ -52,7 +52,7 @@ final class HomeViewController: UIViewController {
 extension HomeViewController: HomeViewProtocol { }
 
 private extension HomeViewController {
-    
+
     func setupView() {
         view.backgroundColor = .white
         
@@ -76,15 +76,16 @@ private extension HomeViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(
-            ArticleCollectionViewCell.self,
-            forCellWithReuseIdentifier: ArticleCollectionViewCell.identifier
+            ServicesCollectionViewCell.self,
+            forCellWithReuseIdentifier: ServicesCollectionViewCell.identifier
         )
-        collectionView.layer.cornerRadius = Constant.cornerRadiusArticleView
+        collectionView.layer.cornerRadius = Constant.cornerRadiusServicesView
         collectionView.layer.cornerCurve = .continuous
+        collectionView.backgroundColor = .white
     }
     
     func setupPageControl() {
-        pageControl.numberOfPages = presenter.articlesList.count
+        pageControl.numberOfPages = presenter.getServicesListCount()
         pageControl.currentPage = Constant.defaultPageControl
         pageControl.pageIndicatorTintColor = UIColor.lightGray
         pageControl.currentPageIndicatorTintColor = UIColor.black
@@ -94,16 +95,18 @@ private extension HomeViewController {
 extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return presenter.articlesList.count
+        return presenter.getServicesListCount()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: ArticleCollectionViewCell.identifier,
+            withReuseIdentifier: ServicesCollectionViewCell.identifier,
             for: indexPath
-        ) as! ArticleCollectionViewCell
+        ) as! ServicesCollectionViewCell
         
-        cell.configure(image: UIImage(named: "test")!, text: "This is my test")
+        let service = presenter.getServicesListItem(at: indexPath.item)
+        
+        cell.configure(with: service)
         
         return cell
     }
@@ -144,5 +147,12 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
             bottom: 0,
             right: inset
         )
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let service = presenter.getServicesListItem(at: indexPath.item).link
+        presenter.routeToServicesPage(webViewUrl: service)
     }
 }

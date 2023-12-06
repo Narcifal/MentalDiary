@@ -49,6 +49,7 @@ final class ShareViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = backButton
         progressBar.progress = Constant.progress
+        view.backgroundColor = .white
         
         setupTextView(view: situationTextView)
         setupTextView(view: thoughtsTextView)

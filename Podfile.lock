@@ -1,16 +1,20 @@
 PODS:
   - SwiftGen (6.6.2)
+  - YouTubePlayer (0.7.2)
 
 DEPENDENCIES:
   - SwiftGen
+  - YouTubePlayer
 
 SPEC REPOS:
   trunk:
     - SwiftGen
+    - YouTubePlayer
 
 SPEC CHECKSUMS:
   SwiftGen: 1366a7f71aeef49954ca5a63ba4bef6b0f24138c
+  YouTubePlayer: 2b5f2830d8f9b2cde942083211291e382c9e6bd5
 
-PODFILE CHECKSUM: ea5a9a00561c85c9c3bf220ff522167e3b972941
+PODFILE CHECKSUM: 55bd91ff2ddb6738a5b7b21f1089be3982ab93f4
 
-COCOAPODS: 1.13.0
+COCOAPODS: 1.11.3

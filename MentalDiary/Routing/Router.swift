@@ -14,6 +14,7 @@ protocol RouterProtocol {
     func routeToProfileScreen()
     func backToTabBarTapped()
     func back(navigationController: UINavigationController, animated: Bool)
+    func routeToServicesPageScreen(webViewUrl: String)
 }
 
 final class Router: RouterProtocol {
@@ -78,7 +79,6 @@ extension Router {
         profileModule.modalPresentationStyle = .fullScreen
         
         tabBarController?.present(profileModule, animated: true, completion: nil)
-
     }
     
     func backToTabBarTapped() {
@@ -87,5 +87,15 @@ extension Router {
     
     func back(navigationController: UINavigationController, animated: Bool) {
         navigationController.popViewController(animated: true)
+    }
+    
+    func routeToServicesPageScreen(webViewUrl: String) {
+        let servicesPageModule = assembly.createServicesPageViewController(
+            router: self,
+            webViewUrl: webViewUrl
+        )
+        servicesPageModule.modalPresentationStyle = .fullScreen
+        
+        tabBarController?.present(servicesPageModule, animated: true, completion: nil)
     }
 }
